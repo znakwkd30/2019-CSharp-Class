@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,7 @@ namespace _2019CSharp
     /// </summary>
     public partial class App : Application
     {
+        public static FoodDataSource FoodData = new FoodDataSource();
+        public static Seat seat = new Seat();
     }
 }

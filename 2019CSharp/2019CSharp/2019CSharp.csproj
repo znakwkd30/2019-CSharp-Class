@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{73423DDC-9B56-4152-ACC0-1E7F50F7CAC3}</ProjectGuid>
+    <ProjectGuid>{E5AC35BB-20E3-47D9-9E48-32E163D20635}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>_2019CSharp</RootNamespace>
     <AssemblyName>2019CSharp</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -62,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="FoodDataSource.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -92,6 +94,95 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">
+      <Project>{6d420ff9-8ee0-47ac-8b82-39bf8fb97681}</Project>
+      <Name>ClassLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\nm_img.jpg" />
+    <Resource Include="Assets\side1.png" />
+    <Resource Include="Assets\side10.png" />
+    <Resource Include="Assets\side11.png" />
+    <Resource Include="Assets\side12.png" />
+    <Resource Include="Assets\side13.png" />
+    <Resource Include="Assets\side14.png" />
+    <Resource Include="Assets\side15.png" />
+    <Resource Include="Assets\side2.png" />
+    <Resource Include="Assets\side3.png" />
+    <Resource Include="Assets\side4.png" />
+    <Resource Include="Assets\side5.png" />
+    <Resource Include="Assets\side9.png" />
+    <Resource Include="Assets\view_ans1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\bi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\frmv3_title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\main.png" />
+    <Resource Include="Assets\main2.png" />
+    <Resource Include="Assets\main3.png" />
+    <Resource Include="Assets\main4.png" />
+    <Resource Include="Assets\main5.png" />
+    <Resource Include="Assets\main6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\topping1.png" />
+    <Resource Include="Assets\topping14.jpg" />
+    <Resource Include="Assets\topping10.jpg" />
+    <Resource Include="Assets\topping2.jpg" />
+    <Resource Include="Assets\topping3.jpg" />
+    <Resource Include="Assets\topping4.jpg" />
+    <Resource Include="Assets\topping6.jpg" />
+    <Resource Include="Assets\topping7.jpg" />
+    <Resource Include="Assets\topping8.jpg" />
+    <Resource Include="Assets\topping9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\topping11.jpg" />
+    <Resource Include="Assets\topping12.jpg" />
+    <Resource Include="Assets\topping13.jpg" />
+    <Resource Include="Assets\topping5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\강냉파이.jpg" />
+    <Resource Include="Assets\고구마튀김.jpg" />
+    <Resource Include="Assets\고추튀김.jpg" />
+    <Resource Include="Assets\김말이.jpg" />
+    <Resource Include="Assets\만두.jpg" />
+    <Resource Include="Assets\버터갈릭감자튀김.jpg" />
+    <Resource Include="Assets\새우튀김.jpg" />
+    <Resource Include="Assets\오징어튀김.JPG" />
+    <Resource Include="Assets\호박튀김.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\콜라.jpg" />
+    <Resource Include="Assets\쿨피스.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\ach_img1.png" />
+    <Resource Include="Assets\ach_img2.png" />
+    <Resource Include="Assets\ach_img3.png" />
+    <Resource Include="Assets\ach_img4.png" />
+    <Resource Include="Assets\ach_img5.png" />
+    <Resource Include="Assets\ach_img6.png" />
+    <Resource Include="Assets\ach_img7.png" />
+    <Resource Include="Assets\drink_img1.png" />
+    <Resource Include="Assets\drink_img10.png" />
+    <Resource Include="Assets\drink_img11.png" />
+    <Resource Include="Assets\drink_img2.png" />
+    <Resource Include="Assets\drink_img3.png" />
+    <Resource Include="Assets\drink_img4.png" />
+    <Resource Include="Assets\drink_img5.png" />
+    <Resource Include="Assets\drink_img6.png" />
+    <Resource Include="Assets\drink_img7.png" />
+    <Resource Include="Assets\drink_img8.png" />
+    <Resource Include="Assets\drink_img9.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
