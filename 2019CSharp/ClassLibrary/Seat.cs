@@ -48,9 +48,18 @@ namespace ClassLibrary
                     return SeatFoodlst;
                 }
             }
+
             SeatFoodlst.Add(food);
             food.Count++;
+
             Console.WriteLine(SeatFoodlst.Count);
+            return SeatFoodlst;
+        }
+
+        public List<Food> ResetFoodList()
+        {
+            SeatFoodlst.RemoveAll(food => food == food);
+
             return SeatFoodlst;
         }
     }

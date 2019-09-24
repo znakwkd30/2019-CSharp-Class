@@ -75,6 +75,7 @@ namespace _2019CSharp
                     CategoryFoodList.Add(food);
                 }
             }
+
             lvFood.ItemsSource = CategoryFoodList;
             lvFood.Items.Refresh();
         }
@@ -95,6 +96,14 @@ namespace _2019CSharp
         {
             ((MainWindow)Application.Current.MainWindow).OrderCtrl.Visibility = Visibility.Collapsed;
             ((MainWindow)Application.Current.MainWindow).OrderBtn.Visibility = Visibility.Visible;
+        }
+
+        private void AllMinus_Click(object sender, RoutedEventArgs e)
+        {
+            Food food = (lvFood.SelectedItem as Food);
+
+            lvSelectFood.ItemsSource = App.seat.ResetFoodList();
+            lvSelectFood.Items.Refresh();
         }
     }
 }

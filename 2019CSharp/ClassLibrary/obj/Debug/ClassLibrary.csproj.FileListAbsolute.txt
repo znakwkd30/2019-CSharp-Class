@@ -4,3 +4,9 @@ C:\Users\kl\Desktop\뜸부기\cs\2019CSharp\ClassLibrary\obj\Debug\ClassLibrary.
 C:\Users\kl\Desktop\뜸부기\cs\2019CSharp\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
 C:\Users\kl\Desktop\뜸부기\cs\2019CSharp\ClassLibrary\obj\Debug\ClassLibrary.dll
 C:\Users\kl\Desktop\뜸부기\cs\2019CSharp\ClassLibrary\obj\Debug\ClassLibrary.pdb
+C:\Users\kl\Documents\GitHub\2019-CSharp-Class\2019CSharp\ClassLibrary\bin\Debug\ClassLibrary.dll
+C:\Users\kl\Documents\GitHub\2019-CSharp-Class\2019CSharp\ClassLibrary\bin\Debug\ClassLibrary.pdb
+C:\Users\kl\Documents\GitHub\2019-CSharp-Class\2019CSharp\ClassLibrary\obj\Debug\ClassLibrary.csprojAssemblyReference.cache
+C:\Users\kl\Documents\GitHub\2019-CSharp-Class\2019CSharp\ClassLibrary\obj\Debug\ClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\kl\Documents\GitHub\2019-CSharp-Class\2019CSharp\ClassLibrary\obj\Debug\ClassLibrary.dll
+C:\Users\kl\Documents\GitHub\2019-CSharp-Class\2019CSharp\ClassLibrary\obj\Debug\ClassLibrary.pdb
