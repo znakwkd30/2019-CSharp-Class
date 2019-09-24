@@ -34,3 +34,6 @@ C:\Users\kl\Documents\GitHub\2019-CSharp-Class\2019CSharp\2019CSharp\obj\Debug\2
 C:\Users\kl\Documents\GitHub\2019-CSharp-Class\2019CSharp\2019CSharp\obj\Debug\2019CSharp.csproj.CopyComplete
 C:\Users\kl\Documents\GitHub\2019-CSharp-Class\2019CSharp\2019CSharp\obj\Debug\2019CSharp.exe
 C:\Users\kl\Documents\GitHub\2019-CSharp-Class\2019CSharp\2019CSharp\obj\Debug\2019CSharp.pdb
+C:\Users\kl\Documents\GitHub\2019-CSharp-Class\2019CSharp\2019CSharp\obj\Debug\Order.g.cs
+C:\Users\kl\Documents\GitHub\2019-CSharp-Class\2019CSharp\2019CSharp\obj\Debug\Order.baml
+C:\Users\kl\Documents\GitHub\2019-CSharp-Class\2019CSharp\2019CSharp\obj\Debug\GeneratedInternalTypeHelper.g.cs
