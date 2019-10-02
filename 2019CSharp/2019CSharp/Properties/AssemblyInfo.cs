@@ -21,7 +21,7 @@ using System.Windows;
 // 해당 형식에 대해 ComVisible 특성을 true로 설정하세요.
 [assembly: ComVisible(false)]
 
-//지역화 가능 응용 프로그램 빌드를 시작하려면 다음을 설정하세요.
+//지역화 가능 애플리케이션 빌드를 시작하려면 다음을 설정하세요.
 //.csproj 파일에서 <PropertyGroup> 내에 <UICulture>CultureYouAreCodingWith</UICulture>를
 //설정하십시오. 예를 들어 소스 파일에서 영어(미국)를
 //사용하는 경우 <UICulture>를 en-US로 설정합니다. 그런 다음 아래
@@ -48,8 +48,8 @@ using System.Windows;
 //      빌드 번호
 //      수정 버전
 //
-// 모든 값을 지정하거나 아래와 같이 '*'를 사용하여 빌드 번호 및 수정 번호가 자동으로
-// 지정되도록 할 수 있습니다.
+// 모든 값을 지정하거나 아래와 같이 '*'를 사용하여 빌드 번호 및 수정 번호를
+// 기본값으로 할 수 있습니다.
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
