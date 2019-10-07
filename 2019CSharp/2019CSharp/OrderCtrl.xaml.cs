@@ -83,8 +83,6 @@ namespace _2019CSharp
             ListItemSet(selectedCategory);
         }
 
-        
-
         private void ListItemSet(string category)
         {
             List<Food> CategoryFoodList = new List<Food>();
@@ -107,11 +105,6 @@ namespace _2019CSharp
             lvFood.Items.Refresh();
         }
 
-        private void SetTotalPrice()
-        {
-            //TotalPrice = App.seat.TotalPrice;
-        }
-
         private void LvFood_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Food food = (lvFood.SelectedItem as Food);
@@ -120,6 +113,9 @@ namespace _2019CSharp
 
             lvSelectFood.ItemsSource = App.seat.SetFoodList(food);
             App.seat.plusPrice();
+
+            TotalPrice.Text = App.seat.TotalPrice.ToString();
+
             lvSelectFood.Items.Refresh();
             lvFood.SelectedIndex = -1;
         }
