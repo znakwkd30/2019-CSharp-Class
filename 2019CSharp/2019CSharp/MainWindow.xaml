@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button x:Name="mainBtn" Width="200" Height="200" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Button_Click"></Button>
+        <local:SeatCtrl x:Name="seatCtrl" Visibility="Collapsed"></local:SeatCtrl>
     </Grid>
 </Window>

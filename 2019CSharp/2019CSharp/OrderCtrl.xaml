@@ -52,6 +52,26 @@
         <!--<Grid Grid.Row="1">
             <Image Source="Assets/frmv3_title.png" Stretch="None"/>
         </Grid>-->
+
+
+        <Grid Style="{StaticResource payGrid}">
+            <Border x:Name="bord" Visibility="Collapsed" Style="{StaticResource payBord}"></Border>
+            <Grid x:Name="check" Visibility="Collapsed">
+                <TextBlock Style="{StaticResource payTxt}" Text="결제하시겠습니까?"></TextBlock>
+                <Button Style="{StaticResource payBtn}" Content="네" Margin="400, 0, 0, 20" Click="show_pay"></Button>
+                <Button Style="{StaticResource payBtn}" Content="아니오" Margin="0, 0, 400, 20" Click="show_check"></Button>
+            </Grid>
+            <Grid x:Name="pay" Visibility="Collapsed">
+                <TextBlock Style="{StaticResource payTxt}" Text="무엇으로 결제하시겠습니까?"></TextBlock>
+                <Button Style="{StaticResource payBtn}" Content="카드" Margin="400, 0, 0, 20" Click="show_complete"></Button>
+                <Button Style="{StaticResource payBtn}" Content="취소" Margin="0, 0, 400, 20" Click="show_pay"></Button>
+                <Button Style="{StaticResource payBtn}" Content="현금" Margin="0, 0, 0, 20"></Button>
+            </Grid>
+            <Grid x:Name="com" Visibility="Collapsed">
+                <TextBlock Style="{StaticResource payTxt}" Text="결제가 완료되었습니다. 감사합니다."></TextBlock>
+            </Grid>
+        </Grid>
+
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
@@ -138,24 +158,6 @@
             <Grid Grid.Column="2" Background="#21819E" Opacity=".9">
                 <TextBlock x:Name="TotalPrice" Text="{Binding totalPrice}" Foreground="White" FontSize="20"></TextBlock>
                 <Button Content="결제" Click="show_check" VerticalAlignment="Bottom" Height="100"></Button>
-            </Grid>
-
-            <Grid Style="{StaticResource payGrid}">
-                <Border x:Name="bord" Visibility="Collapsed" Style="{StaticResource payBord}"></Border>
-                <Grid x:Name="check" Visibility="Collapsed">
-                    <TextBlock Style="{StaticResource payTxt}" Text="결제하시겠습니까?"></TextBlock>
-                    <Button Style="{StaticResource payBtn}" Content="네" Margin="400, 0, 0, 20" Click="show_pay"></Button>
-                    <Button Style="{StaticResource payBtn}" Content="아니오" Margin="0, 0, 400, 20" Click="show_check"></Button>
-                </Grid>
-                <Grid x:Name="pay" Visibility="Collapsed">
-                    <TextBlock Style="{StaticResource payTxt}" Text="무엇으로 결제하시겠습니까?"></TextBlock>
-                    <Button Style="{StaticResource payBtn}" Content="카드" Margin="400, 0, 0, 20" Click="show_complete"></Button>
-                    <Button Style="{StaticResource payBtn}" Content="취소" Margin="0, 0, 400, 20" Click="show_pay"></Button>
-                    <Button Style="{StaticResource payBtn}" Content="현금" Margin="0, 0, 0, 20"></Button>
-                </Grid>
-                <Grid x:Name="com" Visibility="Collapsed">
-                    <TextBlock Style="{StaticResource payTxt}" Text="결제가 완료되었습니다. 감사합니다."></TextBlock>
-                </Grid>
             </Grid>
         </Grid>
     </Grid>

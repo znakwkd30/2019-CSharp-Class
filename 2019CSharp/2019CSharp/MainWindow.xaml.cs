@@ -23,5 +23,11 @@ namespace _2019CSharp
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            seatCtrl.Visibility = Visibility.Visible;
+            mainBtn.Visibility = Visibility.Collapsed;
+        }
     }
 }
