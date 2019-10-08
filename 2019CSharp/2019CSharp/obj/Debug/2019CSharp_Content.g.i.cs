@@ -8,9 +8,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/topping11.jfif")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/topping12.jfif")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/topping13.jfif")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/topping5.jfif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("2019csharp/2019csharp.sln")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("2019csharp/2019csharp/2019csharp.csproj")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("2019csharp/2019csharp/bin/debug/2019csharp.exe")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("2019csharp/2019csharp/bin/debug/2019csharp.pdb")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("2019csharp/2019csharp/bin/debug/classlibrary.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("2019csharp/2019csharp/bin/debug/classlibrary.pdb")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("2019csharp/2019csharp/obj/debug/2019csharp.exe")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("2019csharp/2019csharp/obj/debug/2019csharp.pdb")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("2019csharp/classlibrary/bin/debug/classlibrary.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("2019csharp/classlibrary/bin/debug/classlibrary.pdb")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("2019csharp/classlibrary/classlibrary.csproj")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("2019csharp/classlibrary/obj/debug/classlibrary.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("2019csharp/classlibrary/obj/debug/classlibrary.pdb")]
 
 
