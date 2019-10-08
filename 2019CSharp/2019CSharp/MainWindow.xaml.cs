@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,18 @@ namespace _2019CSharp
         public MainWindow()
         {
             InitializeComponent();
+
+            Execute(delegate ()
+            {
+                seatCtrl.Visibility = Visibility.Visible;
+                loadingScreen.Visibility = Visibility.Collapsed;
+            }, 1000);
+        }
+
+        public static async void Execute(Action action, int timeoutInMilliseconds)
+        {
+            await Task.Delay(timeoutInMilliseconds);
+            action();
         }
 
         //private void Button_Click(object sender, RoutedEventArgs e)

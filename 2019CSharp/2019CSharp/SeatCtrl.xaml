@@ -77,9 +77,9 @@
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Width="600" Height="150" Margin="15">
+                            <Grid Width="200" Height="250" Margin="15">
                                 <StackPanel>
-                                    <TextBlock Width="600" Height="150" Text="{Binding id}"></TextBlock>
+                                    <TextBlock Text="{Binding id}"></TextBlock>
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>

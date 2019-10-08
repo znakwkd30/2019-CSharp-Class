@@ -7,30 +7,32 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/Assets/mainwinImg3.jpg"/>
-        </Grid.Background>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.1*"/>
-            <ColumnDefinition Width="0.8*"/>
-            <ColumnDefinition Width="0.1*"/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" VerticalAlignment="Top">
-            <Image Source="/Assets/bi.png"/>
+        <Grid x:Name="loadingScreen">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Assets/mainwinImg3.jpg"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition Width="0.1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" VerticalAlignment="Top">
+                <Image Source="/Assets/bi.png"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.1*"/>
+                    <RowDefinition Height="0.8*"/>
+                    <RowDefinition Height="0.1*"/>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="1" Source="/Assets/mainwinImg2.jpg"/>
+            </Grid>
+            <Grid Grid.Column="2" VerticalAlignment="Top">
+                <Image Source="/Assets/mainwinImg1.png"/>
+            </Grid>
         </Grid>
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.1*"/>
-                <RowDefinition Height="0.8*"/>
-                <RowDefinition Height="0.1*"/>
-            </Grid.RowDefinitions>
-            <Image Grid.Row="1" Source="/Assets/mainwinImg2.jpg"/>
-        </Grid>
-        <Grid Grid.Column="2" VerticalAlignment="Top">
-            <Image Source="/Assets/mainwinImg1.png"/>
-        </Grid>
-        <!--<Button x:Name="mainBtn" Width="200" Height="200" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Button_Click"></Button>
-        <local:SeatCtrl x:Name="seatCtrl" Visibility="Collapsed"></local:SeatCtrl>-->
-        
+        <!--<Button x:Name="mainBtn" Width="200" Height="200" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Button_Click"></Button>-->
+        <local:SeatCtrl x:Name="seatCtrl" Visibility="Collapsed"></local:SeatCtrl>
     </Grid>
+    
 </Window>
