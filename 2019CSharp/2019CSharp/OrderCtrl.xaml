@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
+        
         <Style x:Key="TitleStyle" TargetType="TextBlock">
             <Setter Property="FontSize" Value="20"/>
             <!--<Setter Property="HorizontalAlignment" Value="Center"/>-->
@@ -120,8 +121,10 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
-            <Grid Background="#21819E" Opacity=".1" Grid.Column="0">
-                <TextBlock x:Name="TableId" Text="{Binding tableId}"></TextBlock>
+            <Grid Background="#21819E" Opacity=".9" Grid.Column="0">
+                <TextBlock x:Name="tIdx" FontSize="200"></TextBlock>
+                <Button x:Name="removeBtn" Click="RemoveBtn_Click" Content="전체취소" Width="50" Height="50"
+                        HorizontalAlignment="Right" VerticalAlignment="Top"/>
             </Grid>
             <Grid Grid.Column="1">
                 <ListView x:Name="lvSelectFood" ScrollViewer.HorizontalScrollBarVisibility="Disabled"

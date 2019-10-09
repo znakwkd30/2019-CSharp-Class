@@ -38,7 +38,6 @@ namespace ClassLibrary
             set { _SeatFoodlst = value; }
         }
 
-
         public List<Food> SetFoodList(Food food)
         {
             foreach(Food fd in SeatFoodlst)

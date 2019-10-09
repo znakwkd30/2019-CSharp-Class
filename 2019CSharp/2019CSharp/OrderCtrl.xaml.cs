@@ -39,6 +39,7 @@ namespace _2019CSharp
             App.FoodData.Load();
 #if true
             lvFood.ItemsSource = App.FoodData.lstFood;
+            tIdx.Text = getTableId();
 #else   
             //    LoadMenu();
 #endif
@@ -58,6 +59,7 @@ namespace _2019CSharp
         public void SetTableId(string id)
         {
             tableId = id;
+            tIdx.Text = App.seat.id;
         }
 
         public string getTableId()
@@ -168,6 +170,11 @@ namespace _2019CSharp
         {
             await Task.Delay(timeoutInMilliseconds);
             action();
+        }
+
+        private void RemoveBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 

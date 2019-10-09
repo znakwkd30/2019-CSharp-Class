@@ -43,7 +43,6 @@ namespace _2019CSharp
             App.seat.Load();
     #if true
             lvSeat.ItemsSource = App.seat.seatList;
-            
     #else
                 // LoadMenu();
     #endif

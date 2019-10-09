@@ -65,11 +65,12 @@
             <Grid Grid.Row="0" Grid.Column="1">
                 <Image Source="Assets/bi.png" Style="{StaticResource logo}" HorizontalAlignment="Center"/>
             </Grid>
-
             <Grid Grid.Row="1" Grid.Column="1">
                 <ListView x:Name="lvSeat"
-                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                      SelectionChanged="SeatList_SelectionChanged">
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          SelectionChanged="SeatList_SelectionChanged"
+                          HorizontalContentAlignment="Stretch"
+                          VerticalAlignment="Stretch">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel Orientation="Horizontal" />
@@ -77,8 +78,11 @@
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Width="200" Height="250" Margin="15">
-                                <StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0" Width="1000" Height="100">
                                     <TextBlock Text="{Binding id}"></TextBlock>
                                 </StackPanel>
                             </Grid>
