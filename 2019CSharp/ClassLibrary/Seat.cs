@@ -17,13 +17,15 @@ namespace ClassLibrary
             set { totalPrice = value; }
         }
 
-        public int plusPrice()
+        public int changePrice()
         {
             int result = 0;
+
             foreach(Food fd in SeatFoodlst)
             {
                 result += fd.Price * fd.Count;
             }
+
             Console.WriteLine(result);
             TotalPrice = result;
 

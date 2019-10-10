@@ -76,6 +76,9 @@ namespace _2019CSharp
             {
                 App.seat.SeatFoodlst.Remove(food);
             }
+            App.seat.changePrice();
+
+            TotalPrice.Text = App.seat.TotalPrice.ToString();
             lvSelectFood.Items.Refresh();
         }
 
@@ -114,7 +117,7 @@ namespace _2019CSharp
             if (food == null) return;
 
             lvSelectFood.ItemsSource = App.seat.SetFoodList(food);
-            App.seat.plusPrice();
+            App.seat.changePrice();
 
             TotalPrice.Text = App.seat.TotalPrice.ToString();
 
