@@ -39,7 +39,6 @@ namespace _2019CSharp
             App.FoodData.Load();
 #if true
             lvFood.ItemsSource = App.FoodData.lstFood;
-            tIdx.Text = getTableId();
 #else   
             //    LoadMenu();
 #endif
@@ -59,7 +58,7 @@ namespace _2019CSharp
         public void SetTableId(string id)
         {
             tableId = id;
-            tIdx.Text = App.seat.id;
+            tIdx.Text = id.ToString() + "번테이블";
         }
 
         public string getTableId()
