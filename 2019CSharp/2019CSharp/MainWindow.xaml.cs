@@ -36,11 +36,5 @@ namespace _2019CSharp
             await Task.Delay(timeoutInMilliseconds);
             action();
         }
-
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //    seatCtrl.Visibility = Visibility.Visible;
-        //    mainBtn.Visibility = Visibility.Collapsed;
-        //}
     }
 }

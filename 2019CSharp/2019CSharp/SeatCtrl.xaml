@@ -65,6 +65,10 @@
             <Grid Grid.Row="0" Grid.Column="1">
                 <Image Source="Assets/bi.png" Style="{StaticResource logo}" HorizontalAlignment="Center"/>
             </Grid>
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Button Content="통계 화면" Width="200" Height="80" FontSize="36" FontWeight="Bold"></Button>
+                <local:StatisticCtrlxaml x:Name="statiCtrl"></local:StatisticCtrlxaml>
+            </Grid>
             <Grid Grid.Row="1" Grid.Column="1">
                 <ListView x:Name="lvSeat"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"

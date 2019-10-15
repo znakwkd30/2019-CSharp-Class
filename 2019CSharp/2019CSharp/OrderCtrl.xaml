@@ -18,17 +18,15 @@
             <Setter Property="Background" Value="LightBlue" />
         </Style>
         <Style x:Key="payGrid" TargetType="Grid">
-            <Setter Property="Width" Value="1000" />
-            <Setter Property="Height" Value="500" />
-            <Setter Property="Grid.RowSpan" Value="2" />
+            <Setter Property="Grid.RowSpan" Value="3" />
             <Setter Property="Grid.ColumnSpan" Value="2" />
         </Style>
         <Style x:Key="payTxt" TargetType="TextBlock">
-            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Top" />
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="FontSize" Value="36" />
             <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="Margin" Value="0, 0, 0, 20" />
+            <Setter Property="Margin" Value="0, 50, 0, 0" />
         </Style>
         <Style x:Key="payBtn" TargetType="Button">
             <Setter Property="Height" Value="50" />
@@ -36,6 +34,20 @@
             <Setter Property="HorizontalAlignment" Value="Center" />
             <Setter Property="VerticalAlignment" Value="Bottom" />
             <Setter Property="Margin" Value="400, 0, 0, 20" />
+        </Style>
+        <Style x:Key="payPrice" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Margin" Value="380, 25, 0, 0"/>
+        </Style>
+        <Style x:Key="payFoodList" TargetType="ListView">
+            <Setter Property="Height" Value="150" />
+            <Setter Property="Width" Value="300" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0, 50, 300, 0" />
         </Style>
     </UserControl.Resources>
 
@@ -53,25 +65,6 @@
         <!--<Grid Grid.Row="1">
             <Image Source="Assets/frmv3_title.png" Stretch="None"/>
         </Grid>-->
-
-
-        <Grid Style="{StaticResource payGrid}">
-            <Border x:Name="bord" Visibility="Collapsed" Style="{StaticResource payBord}"></Border>
-            <Grid x:Name="check" Visibility="Collapsed">
-                <TextBlock Style="{StaticResource payTxt}" Text="결제하시겠습니까?"></TextBlock>
-                <Button Style="{StaticResource payBtn}" Content="네" Margin="400, 0, 0, 20" Click="show_pay"></Button>
-                <Button Style="{StaticResource payBtn}" Content="아니오" Margin="0, 0, 400, 20" Click="show_check"></Button>
-            </Grid>
-            <Grid x:Name="pay" Visibility="Collapsed">
-                <TextBlock Style="{StaticResource payTxt}" Text="무엇으로 결제하시겠습니까?"></TextBlock>
-                <Button Style="{StaticResource payBtn}" Content="카드" Margin="400, 0, 0, 20" Click="show_complete"></Button>
-                <Button Style="{StaticResource payBtn}" Content="취소" Margin="0, 0, 400, 20" Click="show_pay"></Button>
-                <Button Style="{StaticResource payBtn}" Content="현금" Margin="0, 0, 0, 20"></Button>
-            </Grid>
-            <Grid x:Name="com" Visibility="Collapsed">
-                <TextBlock Style="{StaticResource payTxt}" Text="결제가 완료되었습니다. 감사합니다."></TextBlock>
-            </Grid>
-        </Grid>
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -159,8 +152,44 @@
             </Grid>
 
             <Grid Grid.Column="2" Background="#21819E" Opacity=".9">
-                <TextBlock x:Name="TotalPrice" Text="{Binding totalPrice}" Foreground="White" FontSize="20"></TextBlock>
+                <TextBlock x:Name="TotalPrice" Foreground="White" FontSize="20"></TextBlock>
                 <Button Content="결제" Click="show_check" VerticalAlignment="Bottom" Height="100"></Button>
+            </Grid>
+        </Grid>
+
+        <Grid Style="{StaticResource payGrid}">
+            <Border x:Name="bord" Visibility="Collapsed" Style="{StaticResource payBord}"></Border>
+            <TextBlock x:Name="OrderPrice" Visibility="Collapsed" Style="{StaticResource payPrice}"></TextBlock>
+            <ListView x:Name="payFood" Visibility="Collapsed" Style="{StaticResource payFoodList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="40"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
+                                <TextBlock Text="{Binding Name}" Foreground="Black" Padding="10 0 0 0" FontSize="20"></TextBlock>
+                                <TextBlock Text="{Binding Price}" Foreground="Black" Padding="10 0 0 0" FontSize="20"></TextBlock>
+                                <TextBlock Text="{Binding Count}" Foreground="Black" Padding="10 0 0 0" FontSize="20"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid x:Name="check" Visibility="Collapsed">
+                <TextBlock Style="{StaticResource payTxt}" Text="결제하시겠습니까?"></TextBlock>
+                <Button Style="{StaticResource payBtn}" Content="네" Margin="400, 0, 0, 20" Click="show_pay"></Button>
+                <Button Style="{StaticResource payBtn}" Content="아니오" Margin="0, 0, 400, 20" Click="show_check"></Button>
+            </Grid>
+            <Grid x:Name="pay" Visibility="Collapsed">
+                <TextBlock Style="{StaticResource payTxt}" VerticalAlignment="Center" Margin="0, 0, 0, 50" Text="무엇으로 결제하시겠습니까?"></TextBlock>
+                <Button Style="{StaticResource payBtn}" Content="카드" Margin="400, 0, 0, 20" Click="show_complete"></Button>
+                <Button Style="{StaticResource payBtn}" Content="취소" Margin="0, 0, 400, 20" Click="show_pay"></Button>
+                <Button Style="{StaticResource payBtn}" Content="현금" Margin="0, 0, 0, 20" Click="show_complete"></Button>
+            </Grid>
+            <Grid x:Name="com" Visibility="Collapsed">
+                <TextBlock Style="{StaticResource payTxt}" VerticalAlignment="Center" Margin="0, 0, 0, 50" Text="결제가 완료되었습니다. 감사합니다."></TextBlock>
             </Grid>
         </Grid>
     </Grid>

@@ -23,6 +23,7 @@ namespace _2019CSharp
     public partial class OrderCtrl : UserControl
     {
         string tableId;
+        Food selectedFood;
 
         public delegate void ShowSeatCtrlHandler(object sender, OrderArgs args);
         public event ShowSeatCtrlHandler ShowSeatCtrl;
@@ -39,6 +40,8 @@ namespace _2019CSharp
             App.FoodData.Load();
 #if true
             lvFood.ItemsSource = App.FoodData.lstFood;
+            TotalPrice.Text = "0원";
+            OrderPrice.Text = "0원";
 #else   
             //    LoadMenu();
 #endif
@@ -78,6 +81,7 @@ namespace _2019CSharp
             App.seat.changePrice();
 
             TotalPrice.Text = App.seat.TotalPrice.ToString();
+            OrderPrice.Text = TotalPrice.Text + "원";
             lvSelectFood.Items.Refresh();
         }
 
@@ -111,31 +115,20 @@ namespace _2019CSharp
 
         private void LvFood_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Food food = (lvFood.SelectedItem as Food);
+            selectedFood = (lvFood.SelectedItem as Food);
 
-            if (food == null) return;
+            if (selectedFood == null) return;
 
-            lvSelectFood.ItemsSource = App.seat.SetFoodList(food);
+            lvSelectFood.ItemsSource = App.seat.SetFoodList(selectedFood);
+            payFood.ItemsSource = lvSelectFood.ItemsSource;
             App.seat.changePrice();
 
-            TotalPrice.Text = App.seat.TotalPrice.ToString();
+            TotalPrice.Text = App.seat.TotalPrice.ToString() + "원";
+            OrderPrice.Text = TotalPrice.Text;
 
             lvSelectFood.Items.Refresh();
+            payFood.Items.Refresh();
             lvFood.SelectedIndex = -1;
-        }
-
-        private void show_pay(object sender, RoutedEventArgs e)
-        {
-            if (pay.Visibility == Visibility.Collapsed)
-            {
-                check.Visibility = Visibility.Collapsed;
-                pay.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                pay.Visibility = Visibility.Collapsed;
-                bord.Visibility = Visibility.Collapsed;
-            }
         }
 
         private void show_check(object sender, RoutedEventArgs e)
@@ -145,10 +138,30 @@ namespace _2019CSharp
             if (check.Visibility == Visibility.Collapsed)
             {
                 check.Visibility = Visibility.Visible;
+                OrderPrice.Visibility = Visibility.Visible;
+                payFood.Visibility = Visibility.Visible;
             }
             else
             {
                 check.Visibility = Visibility.Collapsed;
+                bord.Visibility = Visibility.Collapsed;
+                OrderPrice.Visibility = Visibility.Collapsed;
+                payFood.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void show_pay(object sender, RoutedEventArgs e)
+        {
+            if (pay.Visibility == Visibility.Collapsed)
+            {
+                pay.Visibility = Visibility.Visible;
+                check.Visibility = Visibility.Collapsed;
+                OrderPrice.Visibility = Visibility.Collapsed;
+                payFood.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                pay.Visibility = Visibility.Collapsed;
                 bord.Visibility = Visibility.Collapsed;
             }
         }
