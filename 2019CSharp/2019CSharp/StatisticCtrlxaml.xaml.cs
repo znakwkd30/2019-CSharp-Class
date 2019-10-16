@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,46 @@ namespace _2019CSharp
     /// </summary>
     public partial class StatisticCtrlxaml : UserControl
     {
+        public delegate void ShowSeatCtrlHandler();
+        public event ShowSeatCtrlHandler ShowSeatCtrl;
+
         public StatisticCtrlxaml()
         {
             InitializeComponent();
         }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string selectedCategory = ((ListViewItem)listBox.SelectedItem).Content.ToString();
+            ListItemSet(selectedCategory);
+        }
+
+        private void ListItemSet(string category)
+        {
+            List<Food> CategoryFoodList = new List<Food>();
+
+            if (category.ToString().Equals("All"))
+            {
+                lvFood.ItemsSource = App.FoodData.lstFood;
+                lvFood.Items.Refresh();
+                return;
+            }
+
+            foreach (Food food in App.FoodData.lstFood)
+            {
+                if (food.Category.ToString().Equals(category))
+                {
+                    CategoryFoodList.Add(food);
+                }
+            }
+            lvFood.ItemsSource = CategoryFoodList;
+            lvFood.Items.Refresh();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ShowSeatCtrl();
+        }
     }
+
 }

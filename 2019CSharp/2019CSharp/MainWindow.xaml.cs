@@ -24,7 +24,7 @@ namespace _2019CSharp
         {
             InitializeComponent();
 
-            Execute(delegate ()
+            Execute(() =>
             {
                 seatCtrl.Visibility = Visibility.Visible;
                 loadingScreen.Visibility = Visibility.Collapsed;

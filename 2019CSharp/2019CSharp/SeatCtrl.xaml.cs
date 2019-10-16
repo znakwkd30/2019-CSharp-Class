@@ -35,6 +35,7 @@ namespace _2019CSharp
             myTimer.Start();
 
             orderCtrl.ShowSeatCtrl += OrderCtrl_ShowSeatCtrl;
+            statisCtrl.ShowSeatCtrl += StatisticCtrl_ShowSeatCtrl;
         }
 
         private void SeatCtrl_Loaded(object sender, RoutedEventArgs e)
@@ -46,6 +47,12 @@ namespace _2019CSharp
     #else
                 // LoadMenu();
     #endif
+        }
+
+        private void StatisticCtrl_ShowSeatCtrl()
+        {
+            seatCtrl.Visibility = Visibility.Visible;
+            statisCtrl.Visibility = Visibility.Collapsed;
         }
 
         private void OrderCtrl_ShowSeatCtrl(object sender, OrderArgs args)
@@ -76,6 +83,12 @@ namespace _2019CSharp
             seatCtrl.Visibility = Visibility.Collapsed;
 
             if (seat == null) return;
+        }
+
+        private void SalesBtn_Click(object sender, RoutedEventArgs e)
+        {
+            seatCtrl.Visibility = Visibility.Collapsed;
+            statisCtrl.Visibility = Visibility.Visible;
         }
     }
 }

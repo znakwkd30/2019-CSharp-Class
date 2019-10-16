@@ -6,7 +6,50 @@
              xmlns:local="clr-namespace:_2019CSharp"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+    </UserControl.Resources>
+    
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <ListView x:Name="listBox" FontWeight="Bold" FontSize="50" BorderBrush="Black" HorizontalAlignment="Stretch"
+                         SelectionChanged="ListBox_SelectionChanged" Background="#21819E" Opacity=".5">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListViewItem Foreground="White">All</ListViewItem>
+                <ListViewItem Foreground="White">단품</ListViewItem>
+                <ListViewItem Foreground="White">식사</ListViewItem>
+                <ListViewItem Foreground="White">음료</ListViewItem>
+                <Button Click="Button_Click" Width="180">메인</Button>
+            </ListView>
+        </Grid>
+        <Grid Grid.Column="1">
+            <ListView x:Name="lvFood" HorizontalAlignment="Center" 
+                          SelectionMode="Single"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled" Background="#21819E" Opacity=".9">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="200" Height="300">
+                            <StackPanel>
+                                <Image Source="{Binding ImagePath}" Width="200" Height="200"></Image>
+                                <TextBlock Text="{Binding Name}" Foreground="White" FontSize="24" TextAlignment="Center"></TextBlock>
+                                <TextBlock Text="{Binding Price}" Foreground="White" FontSize="24" TextAlignment="Center"></TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
     </Grid>
 </UserControl>
