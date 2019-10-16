@@ -27,6 +27,8 @@ namespace _2019CSharp
         public StatisticCtrlxaml()
         {
             InitializeComponent();
+
+            //salesPrice.Text = (App.sales.SalesPrice).ToString();
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -41,8 +43,8 @@ namespace _2019CSharp
 
             if (category.ToString().Equals("All"))
             {
-                lvFood.ItemsSource = App.FoodData.lstFood;
-                lvFood.Items.Refresh();
+                payFood.ItemsSource = App.sales.SalesFoodList;
+                payFood.Items.Refresh();
                 return;
             }
 
@@ -53,8 +55,8 @@ namespace _2019CSharp
                     CategoryFoodList.Add(food);
                 }
             }
-            lvFood.ItemsSource = CategoryFoodList;
-            lvFood.Items.Refresh();
+            payFood.ItemsSource = CategoryFoodList;
+            payFood.Items.Refresh();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

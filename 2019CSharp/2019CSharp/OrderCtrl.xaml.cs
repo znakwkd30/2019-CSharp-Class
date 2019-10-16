@@ -173,6 +173,9 @@ namespace _2019CSharp
                 pay.Visibility = Visibility.Collapsed;
                 com.Visibility = Visibility.Visible;
 
+                App.sales.SalesFoodList = App.seat.SeatFoodlst;
+                App.sales.SalesPrice = App.seat.TotalPrice;
+
                 Execute(delegate ()
                 {
                     com.Visibility = Visibility.Collapsed;
