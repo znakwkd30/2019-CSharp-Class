@@ -89,6 +89,8 @@ namespace _2019CSharp
         {
             seatCtrl.Visibility = Visibility.Collapsed;
             statisCtrl.Visibility = Visibility.Visible;
+            
+            statisCtrl.salesPrice.Text = (App.sales.SalesPrice).ToString() + "원";
         }
     }
 }

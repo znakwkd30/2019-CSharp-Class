@@ -174,7 +174,7 @@ namespace _2019CSharp
                 com.Visibility = Visibility.Visible;
 
                 App.sales.SalesFoodList = App.seat.SeatFoodlst;
-                App.sales.SalesPrice = App.seat.TotalPrice;
+                App.sales.changePrice();
 
                 Execute(delegate ()
                 {

@@ -94,6 +94,6 @@
                 </ListView>
             </Grid>
         </Grid>
-        <local:StatisticCtrlxaml x:Name="statisCtrl" Visibility="Collapsed"></local:StatisticCtrlxaml>
+        <local:StatisticCtrl x:Name="statisCtrl" Visibility="Collapsed"></local:StatisticCtrl>
     </Grid>
 </UserControl>

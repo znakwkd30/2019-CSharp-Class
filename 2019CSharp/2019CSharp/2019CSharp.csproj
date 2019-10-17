@@ -61,8 +61,8 @@
     <Compile Include="SeatCtrl.xaml.cs">
       <DependentUpon>SeatCtrl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StatisticCtrlxaml.xaml.cs">
-      <DependentUpon>StatisticCtrlxaml.xaml</DependentUpon>
+    <Compile Include="StatisticCtrl.xaml.cs">
+      <DependentUpon>StatisticCtrl.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
@@ -84,7 +84,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StatisticCtrlxaml.xaml">
+    <Page Include="StatisticCtrl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

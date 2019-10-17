@@ -8,7 +8,9 @@ namespace ClassLibrary
 {
     public class Sales
     {
-        private int salesPrice;
+        int result = 0;
+
+        private int salesPrice = 0;
         public int SalesPrice
         {
             get { return salesPrice; }
@@ -35,21 +37,19 @@ namespace ClassLibrary
             }
             SalesFoodList.Add(food);
             food.Count++;
-            Console.WriteLine("sales: " + SalesFoodList.Count);
+            Console.WriteLine("count: " + SalesFoodList.Count);
             return SalesFoodList;
         }
 
         public int changePrice()
         {
-            int result = 0;
-
             foreach (Food fd in SalesFoodList)
             {
                 result += fd.Price * fd.Count;
             }
-
-            Console.WriteLine("sales: " + result);
+            
             SalesPrice = result;
+            Console.WriteLine("sales2: " + SalesPrice);
 
             return SalesPrice;
         }
