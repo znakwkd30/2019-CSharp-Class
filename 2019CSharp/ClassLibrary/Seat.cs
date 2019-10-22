@@ -44,9 +44,9 @@ namespace ClassLibrary
         {
             foreach(Food fd in SeatFoodlst)
             {
-                if (fd.Equals(food))
+                if (fd.Name.Equals(food.Name))
                 {
-                    food.Count++;
+                    fd.Count++;
                     return SeatFoodlst;
                 }
             }

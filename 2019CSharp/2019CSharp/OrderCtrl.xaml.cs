@@ -115,11 +115,22 @@ namespace _2019CSharp
 
         private void LvFood_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (lvFood.SelectedIndex == -1) return;
+
             selectedFood = (lvFood.SelectedItem as Food);
+
+            Food food = new Food
+            {
+                Category = selectedFood.Category,
+                Name = selectedFood.Name,
+                Price = selectedFood.Price,
+                ImagePath = selectedFood.ImagePath,
+                Count = selectedFood.Count
+            };
 
             if (selectedFood == null) return;
 
-            lvSelectFood.ItemsSource = App.seat.SetFoodList(selectedFood);
+            lvSelectFood.ItemsSource = App.seat.SetFoodList(food);
             payFood.ItemsSource = lvSelectFood.ItemsSource;
             App.seat.changePrice();
 
@@ -192,7 +203,13 @@ namespace _2019CSharp
 
         private void RemoveBtn_Click(object sender, RoutedEventArgs e)
         {
+            App.seat.SeatFoodlst.Clear();
+            App.seat.changePrice();
 
+            TotalPrice.Text = App.seat.TotalPrice.ToString() + "원";
+            OrderPrice.Text = TotalPrice.Text;
+
+            lvSelectFood.Items.Refresh();
         }
     }
 
