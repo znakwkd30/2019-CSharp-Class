@@ -61,7 +61,7 @@ namespace _2019CSharp
         public void SetTableId(string id)
         {
             tableId = id;
-            tIdx.Text = id.ToString() + "번테이블";
+            tIdx.Text = tableId.ToString() + "번테이블";
         }
 
         public string getTableId()
@@ -113,22 +113,47 @@ namespace _2019CSharp
             lvFood.Items.Refresh();
         }
 
+        private Food NewFood(Food food)
+        {
+            Food item = new Food();
+
+            if (food == null)
+                return food;
+            
+            Debug.Write(food);
+
+            item.Name = food.Name;
+            item.Price = food.Price;
+            item.Count = food.Count;
+            item.Category = food.Category;
+
+            return item;
+        }
+
         private void LvFood_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            selectedFood = (lvFood.SelectedItem as Food);
+            selectedFood = NewFood(lvFood.SelectedItem as Food);
+
+            //lvSelectFood.Items.Clear();
 
             if (selectedFood == null) return;
 
-            lvSelectFood.ItemsSource = App.seat.SetFoodList(selectedFood);
-            payFood.ItemsSource = lvSelectFood.ItemsSource;
-            App.seat.changePrice();
+            foreach (Seat seat in App.seatList)
+            {
+                if (tableId.Equals(seat.id))
+                {
+                    lvSelectFood.ItemsSource = seat.SetFoodList(selectedFood);
+                    payFood.ItemsSource = lvSelectFood.ItemsSource;
+                    seat.changePrice();
 
-            TotalPrice.Text = App.seat.TotalPrice.ToString() + "원";
-            OrderPrice.Text = TotalPrice.Text;
+                    TotalPrice.Text = seat.TotalPrice.ToString() + "원";
+                    OrderPrice.Text = TotalPrice.Text;
 
-            lvSelectFood.Items.Refresh();
-            payFood.Items.Refresh();
-            lvFood.SelectedIndex = -1;
+                    lvSelectFood.Items.Refresh();
+                    payFood.Items.Refresh();
+                    lvFood.SelectedIndex = -1;
+                }
+            }
         }
 
         private void show_check(object sender, RoutedEventArgs e)
@@ -180,7 +205,7 @@ namespace _2019CSharp
                 {
                     com.Visibility = Visibility.Collapsed;
                     bord.Visibility = Visibility.Collapsed;
-                }, 3000);
+                }, 1000);
             }
         }
 

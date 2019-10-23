@@ -10,6 +10,8 @@ namespace ClassLibrary
     {
         public string id { get; set; }
 
+        public Food food { get; set; }
+
         private int totalPrice;
         public int TotalPrice
         {
@@ -25,8 +27,7 @@ namespace ClassLibrary
             {
                 result += fd.Price * fd.Count;
             }
-
-            Console.WriteLine(result);
+            
             TotalPrice = result;
 
             return TotalPrice;
@@ -44,37 +45,15 @@ namespace ClassLibrary
         {
             foreach(Food fd in SeatFoodlst)
             {
-                if (fd.Equals(food))
+                if (fd.Name.Equals(food.Name))
                 {
-                    food.Count++;
+                    SeatFoodlst.Find(x => x.Name == food.Name).Count++;
                     return SeatFoodlst;
                 }
             }
             SeatFoodlst.Add(food);
             food.Count++;
-            Console.WriteLine(SeatFoodlst.Count);
             return SeatFoodlst;
-        }
-
-        bool isLoaded = false;
-
-        public List<Seat> seatList;
-
-        public void Load()
-        {
-            if (isLoaded) return;
-
-            seatList = new List<Seat>()
-                {
-                    new Seat() { id="1" },
-                    new Seat() { id="2" },
-                    new Seat() { id="3" },
-                    new Seat() { id="4" },
-                    new Seat() { id="5" },
-                    new Seat() { id="6" },
-                };
-
-            isLoaded = true;
         }
     }
 }

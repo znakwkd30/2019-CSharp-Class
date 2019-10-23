@@ -41,11 +41,12 @@ namespace _2019CSharp
         private void SeatCtrl_Loaded(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("SeatCtrl_Loaded");
-            App.seat.Load();
+            App.Load();
     #if true
-            lvSeat.ItemsSource = App.seat.seatList;
+            lvSeat.ItemsSource = App.seatList;
     #else
                 // LoadMenu();
+
     #endif
         }
 

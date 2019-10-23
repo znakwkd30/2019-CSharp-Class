@@ -10,6 +10,8 @@ namespace ClassLibrary
     {
         int result = 0;
 
+        Seat seat;
+
         private int salesPrice = 0;
         public int SalesPrice
         {
