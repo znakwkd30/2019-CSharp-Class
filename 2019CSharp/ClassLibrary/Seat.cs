@@ -47,7 +47,7 @@ namespace ClassLibrary
             {
                 if (fd.Name.Equals(food.Name))
                 {
-                    SeatFoodlst.Find(x => x.Name == food.Name).Count++;
+                    fd.Count++;
                     return SeatFoodlst;
                 }
             }
