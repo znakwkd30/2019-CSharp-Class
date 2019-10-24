@@ -54,6 +54,9 @@ namespace _2019CSharp
 
             if (ShowSeatCtrl != null)
             {
+                lvSelectFood.ItemsSource = new List<Food>();
+                TotalPrice.Text = "0원";
+
                 ShowSeatCtrl(this, args);
             }
         }
@@ -72,17 +75,27 @@ namespace _2019CSharp
         private void BtnMinus_Click(object sender, RoutedEventArgs e)
         {
             Food food = (lvSelectFood.SelectedItem as Food);
-            if (food == null) return;
-            food.Count--;
-            if (food.Count == 0)
-            {
-                App.seat.SeatFoodlst.Remove(food);
-            }
-            App.seat.changePrice();
 
-            TotalPrice.Text = App.seat.TotalPrice.ToString();
-            OrderPrice.Text = TotalPrice.Text + "원";
-            lvSelectFood.Items.Refresh();
+            if (food == null) return;
+
+            foreach (Seat seat in App.seatList)
+            {
+                if (tableId.Equals(seat.id))
+                {
+                    food.Count--;
+                    if (food.Count == 0)
+                    {
+                        seat.SeatFoodlst.Remove(food);
+                    }
+                    seat.changePrice();
+                    
+                    TotalPrice.Text = seat.TotalPrice.ToString() + "원";
+                    OrderPrice.Text = TotalPrice.Text + "원";
+                    lvSelectFood.Items.Refresh();
+
+                    return;
+                }
+            }
         }
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -130,11 +143,21 @@ namespace _2019CSharp
             return item;
         }
 
+        public void Refresh_List()
+        {
+            foreach (Seat seat in App.seatList)
+            {
+                if (tableId.Equals(seat.id))
+                {
+                    lvSelectFood.ItemsSource = seat.SeatFoodlst;
+                }
+            }
+        }
+
+
         private void LvFood_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedFood = NewFood(lvFood.SelectedItem as Food);
-
-            //lvSelectFood.Items.Clear();
 
             if (selectedFood == null) return;
 
