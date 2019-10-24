@@ -1,4 +1,6 @@
-﻿using ClassLibrary;
+﻿using CefSharp;
+using CefSharp.Wpf;
+using ClassLibrary;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -41,6 +43,7 @@ namespace _2019CSharp
         private void SeatCtrl_Loaded(object sender, RoutedEventArgs e)
         {
             Debug.WriteLine("SeatCtrl_Loaded");
+            InitBrowser();
             App.Load();
     #if true
             lvSeat.ItemsSource = App.seatList;
@@ -48,6 +51,19 @@ namespace _2019CSharp
                 // LoadMenu();
 
     #endif
+        }
+
+        private ChromiumWebBrowser browser;
+
+        public void InitBrowser()
+        {
+            CefSettings settings = new CefSettings();
+            settings.CefCommandLineArgs.Add("disable-usb-keyboard-detect", "1");
+            Cef.Initialize(settings);
+
+            browser = new ChromiumWebBrowser();
+            browser.Address = "http://youtube.com";
+            musicCtrl.youtube.Children.Add(browser);
         }
 
         private void StatisticCtrl_ShowSeatCtrl()

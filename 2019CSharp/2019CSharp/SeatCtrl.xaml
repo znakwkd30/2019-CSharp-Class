@@ -56,8 +56,9 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.5*" />
-                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="0.3*" />
+                <ColumnDefinition Width="0.3*" />
+                <ColumnDefinition Width="0.3*" />
             </Grid.ColumnDefinitions>
             <Grid Grid.Row="0" Grid.Column="0">
                 <TextBlock x:Name="clock" Style="{StaticResource clock}"></TextBlock>
@@ -92,6 +93,9 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="2">
+                <local:MusicControl x:Name="musicCtrl" Visibility="Visible"></local:MusicControl>
             </Grid>
         </Grid>
         <local:StatisticCtrl x:Name="statisCtrl" Visibility="Collapsed"></local:StatisticCtrl>
