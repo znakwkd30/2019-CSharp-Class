@@ -31,7 +31,6 @@ namespace _2019CSharp
     public partial class MusicControl : UserControl
     {
         private bool userIsDraggingSlider = false;
-        //private int idx = 0;
 
         public MusicControl()
         {
