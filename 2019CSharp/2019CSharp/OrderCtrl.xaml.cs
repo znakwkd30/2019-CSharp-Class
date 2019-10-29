@@ -240,7 +240,20 @@ namespace _2019CSharp
 
         private void RemoveBtn_Click(object sender, RoutedEventArgs e)
         {
+            foreach (Seat seat in App.seatList)
+            {
+                if (tableId.Equals(seat.id))
+                {
+                    seat.SeatFoodlst.Clear();
+                    seat.changePrice();
 
+                    TotalPrice.Text = seat.TotalPrice.ToString() + "원";
+                    OrderPrice.Text = TotalPrice.Text;
+
+                    lvSelectFood.Items.Refresh();
+                    payFood.Items.Refresh();
+                }
+            }
         }
     }
 
