@@ -54,10 +54,10 @@ namespace _2019CSharp
 
             if (ShowSeatCtrl != null)
             {
+                ShowSeatCtrl(this, args);
+
                 lvSelectFood.ItemsSource = new List<Food>();
                 TotalPrice.Text = "0원";
-
-                ShowSeatCtrl(this, args);
             }
         }
 
@@ -90,7 +90,7 @@ namespace _2019CSharp
                     seat.changePrice();
                     
                     TotalPrice.Text = seat.TotalPrice.ToString() + "원";
-                    OrderPrice.Text = TotalPrice.Text + "원";
+                    OrderPrice.Text = TotalPrice.Text;
                     lvSelectFood.Items.Refresh();
 
                     return;
@@ -150,10 +150,10 @@ namespace _2019CSharp
                 if (tableId.Equals(seat.id))
                 {
                     lvSelectFood.ItemsSource = seat.SeatFoodlst;
+                    TotalPrice.Text = seat.TotalPrice.ToString() + "원";
                 }
             }
         }
-
 
         private void LvFood_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
