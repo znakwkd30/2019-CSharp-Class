@@ -74,6 +74,10 @@ namespace _2019CSharp
 
         private void OrderCtrl_ShowSeatCtrl(object sender, OrderArgs args)
         {
+            string msg = args.tableId + "번 테이블 주문 완료";
+
+            MessageBox.Show(msg);
+
             orderCtrl.Visibility = Visibility.Collapsed;
             seatCtrl.Visibility = Visibility.Visible;
         }
