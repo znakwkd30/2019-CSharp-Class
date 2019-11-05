@@ -55,6 +55,9 @@ namespace _2019CSharp
             if (ShowSeatCtrl != null)
             {
                 ShowSeatCtrl(this, args);
+
+                lvSelectFood.ItemsSource = new List<Food>();
+                TotalPrice.Text = "0원";
             }
         }
 
@@ -85,9 +88,9 @@ namespace _2019CSharp
                         seat.SeatFoodlst.Remove(food);
                     }
                     seat.changePrice();
-
+                    
                     TotalPrice.Text = seat.TotalPrice.ToString() + "원";
-                    OrderPrice.Text = TotalPrice.Text + "원";
+                    OrderPrice.Text = TotalPrice.Text;
                     lvSelectFood.Items.Refresh();
 
                     return;
@@ -140,11 +143,21 @@ namespace _2019CSharp
             return item;
         }
 
+        public void Refresh_List()
+        {
+            foreach (Seat seat in App.seatList)
+            {
+                if (tableId.Equals(seat.id))
+                {
+                    lvSelectFood.ItemsSource = seat.SeatFoodlst;
+                    TotalPrice.Text = seat.TotalPrice.ToString() + "원";
+                }
+            }
+        }
+
         private void LvFood_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedFood = NewFood(lvFood.SelectedItem as Food);
-
-            //lvSelectFood.Items.Clear();
 
             if (selectedFood == null) return;
 
@@ -162,18 +175,6 @@ namespace _2019CSharp
                     lvSelectFood.Items.Refresh();
                     payFood.Items.Refresh();
                     lvFood.SelectedIndex = -1;
-                }
-            }
-        }
-
-        public void Refresh_List()
-        {
-            foreach (Seat seat in App.seatList)
-            {
-                if (tableId.Equals(seat.id))
-                {
-                    lvSelectFood.ItemsSource = seat.SeatFoodlst;
-                    TotalPrice.Text = seat.TotalPrice.ToString() + "원";
                 }
             }
         }
@@ -220,7 +221,6 @@ namespace _2019CSharp
                 pay.Visibility = Visibility.Collapsed;
                 com.Visibility = Visibility.Visible;
 
-                Remove_List();
                 App.sales.SalesFoodList = App.seat.SeatFoodlst;
                 App.sales.changePrice();
 
@@ -239,11 +239,6 @@ namespace _2019CSharp
         }
 
         private void RemoveBtn_Click(object sender, RoutedEventArgs e)
-        {
-            Remove_List();
-        }
-
-        private void Remove_List()
         {
             foreach (Seat seat in App.seatList)
             {
