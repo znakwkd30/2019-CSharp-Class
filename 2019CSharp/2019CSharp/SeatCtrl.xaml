@@ -45,6 +45,11 @@
             <Setter Property="VerticalAlignment" Value="Bottom" />
             <Setter Property="Margin" Value="400, 0, 0, 20" />
         </Style>
+        <Style x:Key="OrderFoodList" TargetType="ListView">
+            <Setter Property="Height" Value="150" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+        </Style>
     </UserControl.Resources>
 
     <Grid>
@@ -84,10 +89,12 @@
                         <DataTemplate>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <ListView Grid.Column="1">
+                                <StackPanel Grid.Column="0" Width="1000" Height="100">
+                                    <TextBlock Text="{Binding id}"></TextBlock>
+                                </StackPanel>
+                                <ListView x:Name="OrderFood" Style="{StaticResource OrderFoodList}">
                                     <ListView.View>
                                         <GridView>
                                             <GridViewColumn Header="메뉴" DisplayMemberBinding="{Binding Name}" Width="250"/>
@@ -95,9 +102,6 @@
                                         </GridView>
                                     </ListView.View>
                                 </ListView>
-                                <StackPanel Grid.Column="0" Width="1000" Height="100">
-                                    <TextBlock Text="{Binding id}"></TextBlock>
-                                </StackPanel>
                             </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
