@@ -11,7 +11,7 @@ namespace _2019CSharp
     {
         int result = 0;
         bool flag = true;
-        
+
         private int allPrice = 0;
         public int AllPrice
         {
@@ -50,7 +50,7 @@ namespace _2019CSharp
 
         public void SetSalesFoodList(List<Food> food)
         {
-            if(flag)
+            if (flag)
             {
                 for (int i = 0; i < App.FoodData.lstFood.Count; i++)
                 {
@@ -61,11 +61,11 @@ namespace _2019CSharp
 
             foreach (Food salesFood in SalesFoodList)
             {
-                for(int i=0; i<food.Count; i++)
+                for (int i = 0; i < food.Count; i++)
                 {
                     if (salesFood.Name.Equals(food[i].Name))
                     {
-                        for(int j=food[i].Count; j>0; j--)
+                        for (int j = food[i].Count; j > 0; j--)
                         {
                             salesFood.Count++;
                             food[i].Count--;
@@ -96,25 +96,26 @@ namespace _2019CSharp
             result = 0;
             foreach (Food food in SalesFoodList)
             {
-                if(food.Count != 0)
-                    result += food.Price * food.Count;
-
-                switch(food.Category)
+                if (food.Count != 0)
                 {
-                    case Category.eCategory.단품:
-                        SinglePrice += food.Price * food.Count;
-                        break;
-                    case Category.eCategory.식사:
-                        MealPrice += food.Price * food.Count;
-                        break;
-                    case Category.eCategory.음료:
-                        DrinkPrice += food.Price * food.Count;
-                        break;
+                    if (food.Count != 0)
+                        result += food.Price * food.Count;
+
+                    switch (food.Category)
+                    {
+                        case Category.eCategory.단품:
+                            SinglePrice += food.Price * food.Count;
+                            break;
+                        case Category.eCategory.식사:
+                            MealPrice += food.Price * food.Count;
+                            break;
+                        case Category.eCategory.음료:
+                            DrinkPrice += food.Price * food.Count;
+                            break;
+                    }
                 }
+                AllPrice = result;
             }
-            
-            AllPrice = result;
-            Console.WriteLine("sales2: " + AllPrice);
 
             return AllPrice;
         }

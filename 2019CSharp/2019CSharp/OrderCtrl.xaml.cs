@@ -220,9 +220,17 @@ namespace _2019CSharp
             {
                 pay.Visibility = Visibility.Collapsed;
                 com.Visibility = Visibility.Visible;
+                
+                foreach (Seat seat in App.seatList)
+                {
+                    if (tableId.Equals(seat.id))
+                    {
+                        App.sales.SetSalesFoodList(seat.SeatFoodlst);
+                        App.sales.changePrice();
+                    }
+                }
 
-                App.sales.SalesFoodList = App.seat.SeatFoodlst;
-                App.sales.changePrice();
+                Remove_List();
 
                 Execute(delegate ()
                 {
@@ -239,6 +247,11 @@ namespace _2019CSharp
         }
 
         private void RemoveBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Remove_List();
+        }
+
+        private void Remove_List()
         {
             foreach (Seat seat in App.seatList)
             {

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29215.179
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2019CSharp", "2019CSharp\2019CSharp.csproj", "{E5AC35BB-20E3-47D9-9E48-32E163D20635}"
 EndProject
@@ -11,22 +11,31 @@ Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E5AC35BB-20E3-47D9-9E48-32E163D20635}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{E5AC35BB-20E3-47D9-9E48-32E163D20635}.Debug|Any CPU.Build.0 = Debug|x64
 		{E5AC35BB-20E3-47D9-9E48-32E163D20635}.Debug|x64.ActiveCfg = Debug|x64
 		{E5AC35BB-20E3-47D9-9E48-32E163D20635}.Debug|x64.Build.0 = Debug|x64
+		{E5AC35BB-20E3-47D9-9E48-32E163D20635}.Debug|x86.ActiveCfg = Debug|x86
+		{E5AC35BB-20E3-47D9-9E48-32E163D20635}.Debug|x86.Build.0 = Debug|x86
 		{E5AC35BB-20E3-47D9-9E48-32E163D20635}.Release|Any CPU.ActiveCfg = Release|x64
 		{E5AC35BB-20E3-47D9-9E48-32E163D20635}.Release|x64.ActiveCfg = Release|x64
 		{E5AC35BB-20E3-47D9-9E48-32E163D20635}.Release|x64.Build.0 = Release|x64
+		{E5AC35BB-20E3-47D9-9E48-32E163D20635}.Release|x86.ActiveCfg = Release|x86
+		{E5AC35BB-20E3-47D9-9E48-32E163D20635}.Release|x86.Build.0 = Release|x86
 		{6D420FF9-8EE0-47AC-8B82-39BF8FB97681}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{6D420FF9-8EE0-47AC-8B82-39BF8FB97681}.Debug|x64.ActiveCfg = Debug|x64
 		{6D420FF9-8EE0-47AC-8B82-39BF8FB97681}.Debug|x64.Build.0 = Debug|x64
+		{6D420FF9-8EE0-47AC-8B82-39BF8FB97681}.Debug|x86.ActiveCfg = Debug|x64
 		{6D420FF9-8EE0-47AC-8B82-39BF8FB97681}.Release|Any CPU.ActiveCfg = Release|x64
 		{6D420FF9-8EE0-47AC-8B82-39BF8FB97681}.Release|x64.ActiveCfg = Release|x64
 		{6D420FF9-8EE0-47AC-8B82-39BF8FB97681}.Release|x64.Build.0 = Release|x64
+		{6D420FF9-8EE0-47AC-8B82-39BF8FB97681}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
