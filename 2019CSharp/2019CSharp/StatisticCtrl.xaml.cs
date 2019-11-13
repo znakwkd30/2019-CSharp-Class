@@ -46,7 +46,7 @@ namespace _2019CSharp
         {
             List<Food> CategoryFoodList = new List<Food>();
 
-            if (category.ToString().Equals("All"))
+            if (category.Equals("All"))
             {
                 payFood.ItemsSource = App.sales.SalesFoodList;
                 payFood.Items.Refresh();
@@ -60,6 +60,9 @@ namespace _2019CSharp
                     CategoryFoodList.Add(food);
                 }
             }
+
+            Set_Price(category);
+
             payFood.ItemsSource = CategoryFoodList;
             payFood.Items.Refresh();
         }
@@ -67,6 +70,25 @@ namespace _2019CSharp
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             ShowSeatCtrl();
+        }
+
+        private void Set_Price(string category)
+        {
+            switch (category)
+            {
+                case "All":
+                    salesPrice.Text = App.sales.AllPrice.ToString() + "원";
+                    break;
+                case "단품":
+                    salesPrice.Text = App.sales.SinglePrice.ToString() + "원";
+                    break;
+                case "식사":
+                    salesPrice.Text = App.sales.MealPrice.ToString() + "원";
+                    break;
+                case "음료":
+                    salesPrice.Text = App.sales.DrinkPrice.ToString() + "원";
+                    break;
+            }
         }
     }
 }

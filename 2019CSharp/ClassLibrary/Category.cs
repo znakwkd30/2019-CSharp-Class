@@ -10,10 +10,7 @@ namespace ClassLibrary
     {
         public enum eCategory
         {
-            세트,
             단품,
-            토핑,
-            튀김,
             식사,
             음료,
         }
