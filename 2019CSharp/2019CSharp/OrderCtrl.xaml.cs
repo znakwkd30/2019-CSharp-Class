@@ -231,7 +231,7 @@ namespace _2019CSharp
 
                         sendMessage = "@2208#" + seat.id.ToString() + "번 테이블 " + seat.TotalPrice.ToString() +"원 결제 완료.";
 
-                        App.socket.Main(sendMessage);
+                        App.socket.Send_Message(sendMessage);
                     }
                 }
 

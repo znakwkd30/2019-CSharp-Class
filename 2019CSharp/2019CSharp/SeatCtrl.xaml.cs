@@ -32,6 +32,7 @@ namespace _2019CSharp
         {
             InitializeComponent();
             this.Loaded += SeatCtrl_Loaded;
+            serverConnection.Text = "서버 미연결...";
 
             myTimer.Interval = new TimeSpan(0, 0, 1);
             myTimer.Tick += myTimer_Tick;
@@ -84,7 +85,6 @@ namespace _2019CSharp
             clock.Text = DateTime.Now.ToString();
         }
 
-
         private void SeatList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Seat seat = lvSeat.SelectedItem as Seat;
@@ -109,10 +109,36 @@ namespace _2019CSharp
             statisCtrl.salesPrice.Text = (App.sales.AllPrice).ToString() + "원";
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Send_Sales(object sender, RoutedEventArgs e)
         {
-            sendMessage = App.sales.AllPrice.ToString();
-            App.socket.Main(sendMessage);
+            sendMessage = "@All#총 매출액: " + App.sales.AllPrice.ToString() + "원.";
+            App.socket.Send_Message(sendMessage);
         }
+
+        private void Connect_Socket(object sender, RoutedEventArgs e)
+        {
+            App.socket.Connect_Server();
+
+            bool connection = App.socket.Return_Connection();
+
+            if (connection)
+            {
+                serverConnection.Text = "연결중...";
+                lastClose.Text = "최근 연결한 시간: " + string.Format("{0:D2}:{1:D2}:{2:D2}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+            }
+        }
+
+        private void Socket_Logout(object sender, RoutedEventArgs e)
+        {
+            App.socket.Close_Socket();
+
+            bool connection = App.socket.Return_Connection();
+
+            if (!connection)
+            {
+                lastConnect.Text = "최근 로그아웃한 시간: " + string.Format("{0:D2}:{1:D2}:{2:D2}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+                serverConnection.Text = "미연결...";
+            }
+            }
     }
 }

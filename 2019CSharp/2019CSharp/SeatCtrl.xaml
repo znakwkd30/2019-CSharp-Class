@@ -66,9 +66,38 @@
             <Grid Grid.Row="0" Grid.Column="1">
                 <Image Source="Assets/bi.png" Style="{StaticResource logo}" HorizontalAlignment="Center"/>
             </Grid>
+            <Grid Grid.Row="0" Grid.Column="2">
+                <StackPanel>
+                    <TextBlock x:Name="serverConnection" Foreground="Black"></TextBlock>
+                    <TextBlock x:Name="lastConnect" ></TextBlock>
+                    <TextBlock x:Name="lastClose" ></TextBlock>
+                </StackPanel>
+            </Grid>
             <Grid Grid.Row="1" Grid.Column="0">
-                <Button x:Name="salesBtn" Content="통계 화면" Width="200" Height="80" FontSize="36" FontWeight="Bold" Visibility="Visible" Click="SalesBtn_Click"></Button>
-                <Button Width="200" Height="80" Margin="34,199,33,21" Click="Button_Click"></Button>
+                <Button Width="100" Height="100" Content="서버 접속" 
+                        FontSize="22" FontWeight="Bold" 
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top" 
+                        Click="Connect_Socket"
+                       Margin="20, 30"></Button>
+                <Button Width="100" Height="100" Content="로그아웃" 
+                        FontSize="22" FontWeight="Bold" 
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top" 
+                        Click="Socket_Logout"
+                        Margin="20, 30"></Button>
+                <Button Width="100" Height="100" Content="매출 전송" 
+                        FontSize="22" FontWeight="Bold" 
+                        VerticalAlignment="Bottom" 
+                        HorizontalAlignment="Left"
+                        Click="Send_Sales"
+                        Margin="20, 30"></Button>
+                <Button x:Name="salesBtn" Content="통계 화면" 
+                        VerticalAlignment="Bottom" Width="100" Height="100" 
+                        HorizontalAlignment="Right"
+                        FontSize="22" FontWeight="Bold" 
+                        Click="SalesBtn_Click"
+                        Margin="20, 30"></Button>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1">
                 <ListView x:Name="lvSeat"
