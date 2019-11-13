@@ -26,6 +26,7 @@ namespace _2019CSharp
     public partial class SeatCtrl : UserControl
     {
         DispatcherTimer myTimer = new DispatcherTimer();
+        string sendMessage;
 
         public SeatCtrl()
         {
@@ -106,6 +107,12 @@ namespace _2019CSharp
             statisCtrl.Visibility = Visibility.Visible;
             
             statisCtrl.salesPrice.Text = (App.sales.AllPrice).ToString() + "원";
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            sendMessage = App.sales.AllPrice.ToString();
+            App.socket.Main(sendMessage);
         }
     }
 }

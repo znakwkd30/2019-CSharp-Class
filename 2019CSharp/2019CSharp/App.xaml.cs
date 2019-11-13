@@ -42,5 +42,6 @@ namespace _2019CSharp
 
         public static SeatCtrl seatCtrl = new SeatCtrl();
         public static Sales sales = new Sales();
+        public static ServerClient socket = new ServerClient();
     }
 }

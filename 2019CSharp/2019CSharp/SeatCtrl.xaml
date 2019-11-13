@@ -68,6 +68,7 @@
             </Grid>
             <Grid Grid.Row="1" Grid.Column="0">
                 <Button x:Name="salesBtn" Content="통계 화면" Width="200" Height="80" FontSize="36" FontWeight="Bold" Visibility="Visible" Click="SalesBtn_Click"></Button>
+                <Button Width="200" Height="80" Margin="34,199,33,21" Click="Button_Click"></Button>
             </Grid>
             <Grid Grid.Row="1" Grid.Column="1">
                 <ListView x:Name="lvSeat"

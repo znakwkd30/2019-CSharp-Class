@@ -112,6 +112,7 @@
     <Compile Include="SeatCtrl.xaml.cs">
       <DependentUpon>SeatCtrl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ServerClient.cs" />
     <Compile Include="StatisticCtrl.xaml.cs">
       <DependentUpon>StatisticCtrl.xaml</DependentUpon>
     </Compile>

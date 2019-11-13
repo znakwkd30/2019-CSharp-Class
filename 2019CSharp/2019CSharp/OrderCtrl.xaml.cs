@@ -24,6 +24,7 @@ namespace _2019CSharp
     {
         string tableId;
         Food selectedFood;
+        string sendMessage;
 
         public delegate void ShowSeatCtrlHandler(object sender, OrderArgs args);
         public event ShowSeatCtrlHandler ShowSeatCtrl;
@@ -227,6 +228,10 @@ namespace _2019CSharp
                     {
                         App.sales.SetSalesFoodList(seat.SeatFoodlst);
                         App.sales.changePrice();
+
+                        sendMessage = "@2208#" + seat.id.ToString() + "번 테이블 " + seat.TotalPrice.ToString() +"원 결제 완료.";
+
+                        App.socket.Main(sendMessage);
                     }
                 }
 

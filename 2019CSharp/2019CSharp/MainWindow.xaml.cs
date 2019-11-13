@@ -26,6 +26,7 @@ namespace _2019CSharp
 
             Execute(() =>
             {
+                App.socket.Main("@2208");
                 seatCtrl.Visibility = Visibility.Visible;
                 loadingScreen.Visibility = Visibility.Collapsed;
             }, 1000);
