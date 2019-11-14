@@ -112,24 +112,21 @@
                     </ListView.ItemsPanel>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <StackPanel Grid.Column="0" Width="1000" Height="100">
-                                    <TextBlock Text="{Binding id}"></TextBlock>
-                                    <WrapPanel>
-                                        <TextBlock Foreground="Black" Text="{Binding Name}"></TextBlock>
-                                        <TextBlock Foreground="Black" Text=" * "></TextBlock>
-                                        <TextBlock Foreground="Black" Text="{Binding Count}"></TextBlock>
-                                    </WrapPanel>
-                                </StackPanel>
-                            </Grid>
+                            <StackPanel Height="100" Width="300">
+                                <TextBlock Text="{Binding id}"></TextBlock>
+                                <TextBlock Foreground="Black" Text="{Binding OrderedMenus}"></TextBlock>
+                            </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
+
+            <!--<WrapPanel>
+                <TextBlock Foreground="Black" Text="{Binding Name}"></TextBlock>
+                <TextBlock Foreground="Black" Text=" * "></TextBlock>
+                <TextBlock Foreground="Black" Text="{Binding Count}"></TextBlock>
+            </WrapPanel>-->
+
             <Grid Grid.Row="1" Grid.Column="2">
                 <local:MusicControl x:Name="musicCtrl" Visibility="Visible"></local:MusicControl>
             </Grid>

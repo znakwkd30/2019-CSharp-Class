@@ -94,6 +94,8 @@ namespace _2019CSharp
                     OrderPrice.Text = TotalPrice.Text;
                     lvSelectFood.Items.Refresh();
 
+                    seat.Set_MenuList();
+
                     return;
                 }
             }
@@ -282,6 +284,8 @@ namespace _2019CSharp
 
                     lvSelectFood.Items.Refresh();
                     payFood.Items.Refresh();
+
+                    seat.Set_MenuList();
                 }
             }
         }

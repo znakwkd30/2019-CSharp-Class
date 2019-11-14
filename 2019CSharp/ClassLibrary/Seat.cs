@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ namespace ClassLibrary
         public string id { get; set; }
 
         public Food food { get; set; }
+
+        public string OrderedMenus { get; set; }
 
         private int totalPrice;
         public int TotalPrice
@@ -27,7 +30,7 @@ namespace ClassLibrary
             {
                 result += fd.Price * fd.Count;
             }
-            
+
             TotalPrice = result;
 
             return TotalPrice;
@@ -43,17 +46,39 @@ namespace ClassLibrary
 
         public List<Food> SetFoodList(Food food)
         {
-            foreach(Food fd in SeatFoodlst)
+            bool isExist = false;
+
+            foreach (Food fd in SeatFoodlst)
             {
                 if (fd.Name.Equals(food.Name))
                 {
+                    isExist = true;
                     fd.Count++;
-                    return SeatFoodlst;
+                    //OrderedMenus += fd.Name + " * " + fd.Count + Environment.NewLine;
                 }
             }
-            SeatFoodlst.Add(food);
-            food.Count++;
+
+            if(isExist == false)
+            {
+                SeatFoodlst.Add(food);
+                food.Count++;
+                //OrderedMenus += food.Name + " * " + food.Count + Environment.NewLine;
+                Debug.WriteLine(OrderedMenus);
+            }
+
+            Set_MenuList();
+
             return SeatFoodlst;
+        }
+
+        public void Set_MenuList()
+        {
+            //모든 주문메뉴 -> string data로 변경
+            OrderedMenus = string.Empty;
+            foreach (Food fd in SeatFoodlst)
+            {
+                OrderedMenus += fd.Name + " * " + fd.Count + Environment.NewLine;
+            }
         }
     }
 }

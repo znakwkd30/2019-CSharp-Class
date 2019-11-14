@@ -47,12 +47,8 @@ namespace _2019CSharp
             Debug.WriteLine("SeatCtrl_Loaded");
             InitBrowser();
             App.Load();
-    #if true
-            lvSeat.ItemsSource = App.seatList;
-    #else
-                // LoadMenu();
 
-    #endif
+            lvSeat.ItemsSource = App.seatList;
         }
 
         private ChromiumWebBrowser browser;
@@ -86,7 +82,7 @@ namespace _2019CSharp
         {
             // lvSeat.ItemsSource = orderCtrl.payFood.ItemsSource;
             
-            lvSeat.ItemsSource = App.seatList;
+            //lvSeat.ItemsSource = App.seatList;
             lvSeat.Items.Refresh();
         }
 
