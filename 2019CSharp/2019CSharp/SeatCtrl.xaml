@@ -117,16 +117,13 @@
                                     <ColumnDefinition Width="50"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <ListView Grid.Column="1">
-                                    <ListView.View>
-                                        <GridView>
-                                            <GridViewColumn Header="메뉴" DisplayMemberBinding="{Binding Name}" Width="250"/>
-                                            <GridViewColumn Header="수량" DisplayMemberBinding="{Binding Count}" Width="40"/>
-                                        </GridView>
-                                    </ListView.View>
-                                </ListView>
                                 <StackPanel Grid.Column="0" Width="1000" Height="100">
                                     <TextBlock Text="{Binding id}"></TextBlock>
+                                    <WrapPanel>
+                                        <TextBlock Foreground="Black" Text="{Binding Name}"></TextBlock>
+                                        <TextBlock Foreground="Black" Text=" * "></TextBlock>
+                                        <TextBlock Foreground="Black" Text="{Binding Count}"></TextBlock>
+                                    </WrapPanel>
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>

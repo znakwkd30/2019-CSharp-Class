@@ -78,6 +78,16 @@ namespace _2019CSharp
         {
             orderCtrl.Visibility = Visibility.Collapsed;
             seatCtrl.Visibility = Visibility.Visible;
+
+            Set_SeatMenu();
+        }
+
+        private void Set_SeatMenu()
+        {
+            // lvSeat.ItemsSource = orderCtrl.payFood.ItemsSource;
+            
+            lvSeat.ItemsSource = App.seatList;
+            lvSeat.Items.Refresh();
         }
 
         void myTimer_Tick(object sender, EventArgs e)
@@ -88,17 +98,17 @@ namespace _2019CSharp
         private void SeatList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Seat seat = lvSeat.SelectedItem as Seat;
-            
-            string selectedCategory = seat.id.ToString();
-            
-            orderCtrl.SetTableId(selectedCategory);
-            
+
+            if (seat == null) return;
+
+            string selectedId = seat.id.ToString();
+                
+            orderCtrl.SetTableId(selectedId);
+
             orderCtrl.Visibility = Visibility.Visible;
             seatCtrl.Visibility = Visibility.Collapsed;
 
             orderCtrl.Refresh_List();
-
-            if (seat == null) return;
         }
 
         private void SalesBtn_Click(object sender, RoutedEventArgs e)
@@ -139,6 +149,6 @@ namespace _2019CSharp
                 lastConnect.Text = "최근 로그아웃한 시간: " + string.Format("{0:D2}:{1:D2}:{2:D2}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
                 serverConnection.Text = "미연결...";
             }
-            }
+        }
     }
 }

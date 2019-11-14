@@ -167,15 +167,26 @@ namespace _2019CSharp
                 if (tableId.Equals(seat.id))
                 {
                     lvSelectFood.ItemsSource = seat.SetFoodList(selectedFood);
-                    payFood.ItemsSource = lvSelectFood.ItemsSource;
                     seat.changePrice();
 
                     TotalPrice.Text = seat.TotalPrice.ToString() + "원";
-                    OrderPrice.Text = TotalPrice.Text;
 
                     lvSelectFood.Items.Refresh();
-                    payFood.Items.Refresh();
                     lvFood.SelectedIndex = -1;
+                }
+            }
+        }
+
+        private void Show_OrderMenu()
+        {
+            foreach (Seat seat in App.seatList)
+            {
+                if (tableId.Equals(seat.id))
+                {
+                    payFood.ItemsSource = lvSelectFood.ItemsSource;
+                    OrderPrice.Text = TotalPrice.Text;
+
+                    payFood.Items.Refresh();
                 }
             }
         }
@@ -189,6 +200,7 @@ namespace _2019CSharp
                 check.Visibility = Visibility.Visible;
                 OrderPrice.Visibility = Visibility.Visible;
                 payFood.Visibility = Visibility.Visible;
+                Show_OrderMenu();
             }
             else
             {
