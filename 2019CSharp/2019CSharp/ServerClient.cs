@@ -24,7 +24,7 @@ namespace _2019CSharp
         {
             if (connect)
             {
-                MessageBox.Show("이미 서버와 접속중입니다.");
+                MessageBox.Show("[SYSTEM] : 접속 오류.\n이미 서버와 접속중입니다.");
             }
             else
             {

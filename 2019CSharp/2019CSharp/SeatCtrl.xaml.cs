@@ -45,7 +45,6 @@ namespace _2019CSharp
 
         private void SeatCtrl_Loaded(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("SeatCtrl_Loaded");
             InitBrowser();
             App.Load();
 

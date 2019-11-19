@@ -37,7 +37,6 @@ namespace _2019CSharp
 
         private void OrderCtrl_Loaded(object sender, RoutedEventArgs e)
         {
-            Debug.WriteLine("OrderCtrl_Loaded");
             App.FoodData.Load();
 
             lvFood.ItemsSource = App.FoodData.lstFood;
