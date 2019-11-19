@@ -20,7 +20,7 @@ namespace _2019CSharp
         string errorMessage;
 
         // 서버와 연결하는 함수
-        public void Connect_Server()
+        public string Connect_Server()
         {
             if (connect)
             {
@@ -40,6 +40,8 @@ namespace _2019CSharp
                     connect = true;
 
                     Send_Message("@2208");
+
+                    return "최근 로그아웃한 시간: " + string.Format("{0:D2}:{1:D2}:{2:D2}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
                 }
                 catch (Exception err)
                 {
@@ -47,6 +49,8 @@ namespace _2019CSharp
                     MessageBox.Show(errorMessage);
                 }       
             }
+
+            return null;
         }
 
         // 서버와 연결되있는지 확인하는 함수
@@ -82,18 +86,22 @@ namespace _2019CSharp
         }
 
         // 소켓 연결을 끊는 함수
-        public void Close_Socket()
+        public string Close_Socket()
         {
             if(connect)
             {
                 sock.Close();
 
                 connect = false;
+
+                return "최근 로그아웃한 시간: " + string.Format("{0:D2}:{1:D2}:{2:D2}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
             }
             else
             {
                 MessageBox.Show("[SYSTEM] : 로그아웃 오류.\n로그아웃 상태에서 로그아웃할 수 없습니다.");
             }
+
+            return null;
         }
     }
 }

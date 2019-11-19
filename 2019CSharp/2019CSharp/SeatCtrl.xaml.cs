@@ -124,28 +124,28 @@ namespace _2019CSharp
         // 서버와 연결하는 함수
         private void Connect_Socket(object sender, RoutedEventArgs e)
         {
-            App.socket.Connect_Server();
+            string msg = App.socket.Connect_Server();
 
             bool connection = App.socket.Return_Connection();
 
-            if (!connection)
+            if (connection)
             {
                 serverConnection.Text = "연결중...";
-                lastClose.Text = "최근 연결한 시간: " + string.Format("{0:D2}:{1:D2}:{2:D2}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+                lastClose.Text = msg;
             }
         }
 
         // 서버와 연결을 끊는 함수
         private void Socket_Logout(object sender, RoutedEventArgs e)
         {
-            App.socket.Close_Socket();
+            string msg = App.socket.Close_Socket();
             
             bool connection = App.socket.Return_Connection();
 
-            if (connection)
+            if (!connection)
             {
-                lastConnect.Text = "최근 로그아웃한 시간: " + string.Format("{0:D2}:{1:D2}:{2:D2}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
-                serverConnection.Text = "미연결...";
+                lastConnect.Text = msg;
+                serverConnection.Text = "서버 미연결...";
             }
         }
     }
