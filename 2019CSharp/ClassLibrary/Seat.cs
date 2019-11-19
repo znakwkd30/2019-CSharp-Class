@@ -13,6 +13,8 @@ namespace ClassLibrary
 
         public Food food { get; set; }
 
+        public string time { get; set; }
+
         public string OrderedMenus { get; set; }
 
         private int totalPrice;

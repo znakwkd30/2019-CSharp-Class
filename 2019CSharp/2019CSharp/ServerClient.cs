@@ -71,6 +71,11 @@ namespace _2019CSharp
             {
                 // 서버에 데이터 전송
                 sock.Send(buff, SocketFlags.None);
+
+                int n = sock.Receive(receiverBuff);
+
+                string receiveData = Encoding.UTF8.GetString(receiverBuff, 0, n);
+                Console.WriteLine(receiveData);
             }
         }
 

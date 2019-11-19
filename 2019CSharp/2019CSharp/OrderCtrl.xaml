@@ -115,7 +115,11 @@
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
             <Grid Background="#21819E" Opacity=".9" Grid.Column="0">
-                <TextBlock x:Name="tIdx" FontSize="45" Foreground="white" VerticalAlignment="center">1</TextBlock>
+                <StackPanel>
+                    <TextBlock x:Name="tIdx" FontSize="45" Margin="0, 50, 0, 0" Foreground="white" VerticalAlignment="center"></TextBlock>
+                    <TextBlock FontSize="24" Foreground="white" Text="최근 주문한 시간:"></TextBlock>
+                    <TextBlock x:Name="orderTime" FontSize="24" Foreground="white" VerticalAlignment="center"></TextBlock>
+                </StackPanel>
                 <Button x:Name="removeBtn" Click="RemoveBtn_Click" Content="전체취소" Width="50" Height="50"
                         HorizontalAlignment="Right" VerticalAlignment="Top"/>
             </Grid>

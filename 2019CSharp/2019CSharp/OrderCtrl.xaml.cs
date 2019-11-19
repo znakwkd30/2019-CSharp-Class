@@ -246,6 +246,9 @@ namespace _2019CSharp
                         sendMessage = "@2208#" + seat.id.ToString() + "번 테이블 " + seat.TotalPrice.ToString() +"원 결제 완료.";
 
                         App.socket.Send_Message(sendMessage);
+
+                        seat.time = string.Format("{0:D2}:{1:D2}:{2:D2}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
+                        orderTime.Text = seat.time;
                     }
                 }
 

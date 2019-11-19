@@ -80,9 +80,6 @@ namespace _2019CSharp
 
         private void Set_SeatMenu()
         {
-            // lvSeat.ItemsSource = orderCtrl.payFood.ItemsSource;
-            
-            //lvSeat.ItemsSource = App.seatList;
             lvSeat.Items.Refresh();
         }
 
@@ -103,6 +100,8 @@ namespace _2019CSharp
 
             orderCtrl.Visibility = Visibility.Visible;
             seatCtrl.Visibility = Visibility.Collapsed;
+
+            orderCtrl.orderTime.Text = seat.time;
 
             orderCtrl.Refresh_List();
         }
@@ -127,7 +126,7 @@ namespace _2019CSharp
 
             bool connection = App.socket.Return_Connection();
 
-            if (connection)
+            if (!connection)
             {
                 serverConnection.Text = "연결중...";
                 lastClose.Text = "최근 연결한 시간: " + string.Format("{0:D2}:{1:D2}:{2:D2}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
@@ -137,10 +136,10 @@ namespace _2019CSharp
         private void Socket_Logout(object sender, RoutedEventArgs e)
         {
             App.socket.Close_Socket();
-
+            
             bool connection = App.socket.Return_Connection();
 
-            if (!connection)
+            if (connection)
             {
                 lastConnect.Text = "최근 로그아웃한 시간: " + string.Format("{0:D2}:{1:D2}:{2:D2}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
                 serverConnection.Text = "미연결...";
