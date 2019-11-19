@@ -35,6 +35,7 @@ namespace _2019CSharp
             
         }
 
+        // 각 카테고리 클릭시 일어나는 이벤트 관리 함수
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string selectedCategory = ((ListViewItem)listBox.SelectedItem).Content.ToString();
@@ -42,6 +43,7 @@ namespace _2019CSharp
             ListItemSet(selectedCategory);
         }
 
+        // 선택된 카테고리 별로 가격 및 메뉴를 띄우는 함수
         private void ListItemSet(string category)
         {
             List<Food> CategoryFoodList = new List<Food>();
@@ -67,11 +69,13 @@ namespace _2019CSharp
             payFood.Items.Refresh();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        // 메인 화면 띄워주는 함수
+        private void Show_SeatCtrl(object sender, RoutedEventArgs e)
         {
             ShowSeatCtrl();
         }
 
+        // 각 카테고리의 총 가격 띄우는 함수
         private void Set_Price(string category)
         {
             switch (category)

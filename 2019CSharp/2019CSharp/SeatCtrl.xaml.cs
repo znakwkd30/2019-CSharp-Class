@@ -34,6 +34,7 @@ namespace _2019CSharp
             this.Loaded += SeatCtrl_Loaded;
             serverConnection.Text = "서버 미연결...";
 
+            // 메인화면 타이머 기능
             myTimer.Interval = new TimeSpan(0, 0, 1);
             myTimer.Tick += myTimer_Tick;
             myTimer.Start();
@@ -64,30 +65,29 @@ namespace _2019CSharp
             musicCtrl.youtube.Children.Add(browser);
         }
 
+        // 통계 화면에서 메인 화면 표시하는 함수
         private void StatisticCtrl_ShowSeatCtrl()
         {
             seatCtrl.Visibility = Visibility.Visible;
             statisCtrl.Visibility = Visibility.Collapsed;
         }
 
+        // 주문 화면에서 메인 화면 표시하는 함수
         private void OrderCtrl_ShowSeatCtrl(object sender, OrderArgs args)
         {
             orderCtrl.Visibility = Visibility.Collapsed;
             seatCtrl.Visibility = Visibility.Visible;
 
-            Set_SeatMenu();
-        }
-
-        private void Set_SeatMenu()
-        {
             lvSeat.Items.Refresh();
         }
 
+        // 메인화면 타이머에 현재 시각 저장하는 함수
         void myTimer_Tick(object sender, EventArgs e)
         {
             clock.Text = DateTime.Now.ToString();
         }
 
+        // 테이블 클릭시 그 테이블 id의 OrderCtrl로 이동하는 함수
         private void SeatList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Seat seat = lvSeat.SelectedItem as Seat;
@@ -106,6 +106,7 @@ namespace _2019CSharp
             orderCtrl.Refresh_List();
         }
 
+        // 통계 화면 띄우는 함수
         private void SalesBtn_Click(object sender, RoutedEventArgs e)
         {
             seatCtrl.Visibility = Visibility.Collapsed;
@@ -114,12 +115,14 @@ namespace _2019CSharp
             statisCtrl.salesPrice.Text = (App.sales.AllPrice).ToString() + "원";
         }
 
+        // 서버에 총 매출액 전송하는 함수
         private void Send_Sales(object sender, RoutedEventArgs e)
         {
             sendMessage = "@All#총 매출액: " + App.sales.AllPrice.ToString() + "원.";
             App.socket.Send_Message(sendMessage);
         }
 
+        // 서버와 연결하는 함수
         private void Connect_Socket(object sender, RoutedEventArgs e)
         {
             App.socket.Connect_Server();
@@ -133,6 +136,7 @@ namespace _2019CSharp
             }
         }
 
+        // 서버와 연결을 끊는 함수
         private void Socket_Logout(object sender, RoutedEventArgs e)
         {
             App.socket.Close_Socket();

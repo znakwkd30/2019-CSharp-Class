@@ -14,11 +14,12 @@ namespace _2019CSharp
         //ip = "10.80.163.138";
         //port = 80;
 
-        bool connect = false;
+        bool connect = false; // 서버와 연결되있으면 true, 아니면 false
         string cmd = string.Empty;
         Socket sock;
         string errorMessage;
 
+        // 서버와 연결하는 함수
         public void Connect_Server()
         {
             if (connect)
@@ -27,7 +28,7 @@ namespace _2019CSharp
             }
             else
             {
-                // 소켓 객체 생성 (TCP 소켓)
+                // 소켓 객체 생성
                 sock = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 var ep = new IPEndPoint(IPAddress.Parse("10.80.163.138"), 80);
 
@@ -48,11 +49,13 @@ namespace _2019CSharp
             }
         }
 
+        // 서버와 연결되있는지 확인하는 함수
         public bool Return_Connection()
         {
             return connect;
         }
 
+        // 서버에 메시지를 보내는 함수
         public void Send_Message(string sales)
         {
             byte[] receiverBuff = new byte[1024];
@@ -69,7 +72,6 @@ namespace _2019CSharp
             }
             else
             {
-                // 서버에 데이터 전송
                 sock.Send(buff, SocketFlags.None);
 
                 int n = sock.Receive(receiverBuff);
@@ -79,11 +81,11 @@ namespace _2019CSharp
             }
         }
 
+        // 소켓 연결을 끊는 함수
         public void Close_Socket()
         {
             if(connect)
             {
-                // 소켓 닫기
                 sock.Close();
 
                 connect = false;

@@ -48,6 +48,7 @@ namespace _2019CSharp
             set { _SalesFoodList = value; }
         }
 
+        // 결제된 음식을 받아와 그 음식의 count를 증가시키는 함수
         public void SetSalesFoodList(List<Food> food)
         {
             int countFood = 0;
@@ -80,6 +81,7 @@ namespace _2019CSharp
             }
         }
 
+        // Food 데이터를 깊은 복사하는 함수
         private Food NewFood(Food food)
         {
             Food item = new Food();
@@ -95,6 +97,7 @@ namespace _2019CSharp
             return item;
         }
 
+        // 카테고리 별 가격과 전체 가격을 저장하는 함수
         public int changePrice()
         {
             int i = 0;

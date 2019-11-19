@@ -12,7 +12,8 @@ namespace _2019CSharp
         bool isLoaded = false;
 
         public List<Food> lstFood;
-
+        
+        // 리스트의 음식 목록을 저장하는 함수
         public void Load()
         {
             if (isLoaded) return;

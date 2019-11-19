@@ -31,9 +31,11 @@ namespace _2019CSharp
             }, 1000);
         }
 
-        public static async void Execute(Action action, int timeoutInMilliseconds)
+        // 비동기식으로 Execute에 들어간 내용을 second 값 만큼 기다리고 한 번 실행
+        // async void의 경우 곧바로 호출자에게 제어를 돌려줌
+        public static async void Execute(Action action, int second)
         {
-            await Task.Delay(timeoutInMilliseconds);
+            await Task.Delay(second); //Thread.sleep(second)와 기능이 같음 (비동기식)
             action();
         }
     }

@@ -39,16 +39,14 @@ namespace _2019CSharp
         {
             Debug.WriteLine("OrderCtrl_Loaded");
             App.FoodData.Load();
-#if true
+
             lvFood.ItemsSource = App.FoodData.lstFood;
             TotalPrice.Text = "0원";
             OrderPrice.Text = "0원";
-#else   
-            //    LoadMenu();
-#endif
         }
         
-        private void OrderBtn_Click(object sender, RoutedEventArgs e)
+        // 메인 화면을 띄우는 함수
+        private void Show_SeatCtrl(object sender, RoutedEventArgs e)
         {
             OrderArgs args = new OrderArgs();
             args.tableId = getTableId();
@@ -62,17 +60,20 @@ namespace _2019CSharp
             }
         }
 
+        // tableId를 저장하는 함수
         public void SetTableId(string id)
         {
             tableId = id;
             tIdx.Text = tableId.ToString() + "번테이블";
         }
 
+        // tableId를 반환하는 함수
         public string getTableId()
         {
             return tableId;
         }
 
+        // 음식의 count를 감소시키는 함수
         private void BtnMinus_Click(object sender, RoutedEventArgs e)
         {
             Food food = (lvSelectFood.SelectedItem as Food);
@@ -101,12 +102,14 @@ namespace _2019CSharp
             }
         }
 
+        // 선택한 카테고리를 받아오는 함수
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string selectedCategory = ((ListViewItem)listBox.SelectedItem).Content.ToString();
             ListItemSet(selectedCategory);
         }
 
+        // 각 카테고리별로 음식을 보여주는 함수
         private void ListItemSet(string category)
         {
             List<Food> CategoryFoodList = new List<Food>();
@@ -129,6 +132,7 @@ namespace _2019CSharp
             lvFood.Items.Refresh();
         }
 
+        // Food 데이터를 깊은 복사하는 함수
         private Food NewFood(Food food)
         {
             Food item = new Food();
@@ -146,6 +150,7 @@ namespace _2019CSharp
             return item;
         }
 
+        // 주문한 음식 및 가격을 Refresh하는 함수
         public void Refresh_List()
         {
             foreach (Seat seat in App.seatList)
@@ -158,6 +163,7 @@ namespace _2019CSharp
             }
         }
 
+        // 음식을 선택했을 때 주문 내역 리스트에 음식 저장
         private void LvFood_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedFood = NewFood(lvFood.SelectedItem as Food);
@@ -179,6 +185,7 @@ namespace _2019CSharp
             }
         }
 
+        // 주문한 음식 목록과 가격을 출력하는 함수
         private void Show_OrderMenu()
         {
             foreach (Seat seat in App.seatList)
@@ -193,6 +200,7 @@ namespace _2019CSharp
             }
         }
 
+        // 결제하시겠습니까? 출력 및 주문한 음식 목록을 출력하는 함수
         private void show_check(object sender, RoutedEventArgs e)
         {
             bord.Visibility = Visibility.Visible;
@@ -206,13 +214,14 @@ namespace _2019CSharp
             }
             else
             {
-                check.Visibility = Visibility.Collapsed;
                 bord.Visibility = Visibility.Collapsed;
+                check.Visibility = Visibility.Collapsed;
                 OrderPrice.Visibility = Visibility.Collapsed;
                 payFood.Visibility = Visibility.Collapsed;
             }
         }
 
+        // 결제 방법에 대해 묻는 함수
         private void show_pay(object sender, RoutedEventArgs e)
         {
             if (pay.Visibility == Visibility.Collapsed)
@@ -229,6 +238,7 @@ namespace _2019CSharp
             }
         }
 
+        // 결제가 완료되었을때 실행하는 함수
         private void show_complete(object sender, RoutedEventArgs e)
         {
             if (com.Visibility == Visibility.Collapsed)
@@ -236,6 +246,7 @@ namespace _2019CSharp
                 pay.Visibility = Visibility.Collapsed;
                 com.Visibility = Visibility.Visible;
                 
+                // 결제된 음식의 리스트를 Sales의 리스트에 저장 & 서버에 테이블별 매출액 전송
                 foreach (Seat seat in App.seatList)
                 {
                     if (tableId.Equals(seat.id))
@@ -252,6 +263,7 @@ namespace _2019CSharp
                     }
                 }
 
+                // 주문 내역 초기화
                 Remove_List();
 
                 Execute(delegate ()
@@ -262,17 +274,21 @@ namespace _2019CSharp
             }
         }
 
-        public static async void Execute(Action action, int timeoutInMilliseconds)
+        // 비동기식으로 Execute에 들어간 내용을 second 값 만큼 기다리고 한 번 실행
+        // async void의 경우 곧바로 호출자에게 제어를 돌려줌
+        public static async void Execute(Action action, int second)
         {
-            await Task.Delay(timeoutInMilliseconds);
+            await Task.Delay(second); //Thread.sleep(second)와 기능이 같음 (비동기식)
             action();
         }
 
+        // 전체 취소 버튼
         private void RemoveBtn_Click(object sender, RoutedEventArgs e)
         {
             Remove_List();
         }
-
+        
+        // 주문 내역을 초기화하는 함수
         private void Remove_List()
         {
             foreach (Seat seat in App.seatList)

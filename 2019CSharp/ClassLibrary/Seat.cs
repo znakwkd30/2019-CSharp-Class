@@ -24,6 +24,7 @@ namespace ClassLibrary
             set { totalPrice = value; }
         }
 
+        // 테이블의 전체 가격을 저장하는 함수
         public int changePrice()
         {
             int result = 0;
@@ -46,6 +47,7 @@ namespace ClassLibrary
             set { _SeatFoodlst = value; }
         }
 
+        // 테이블의 주문된 음식의 count를 증가시키는 함수
         public List<Food> SetFoodList(Food food)
         {
             bool isExist = false;
@@ -56,7 +58,6 @@ namespace ClassLibrary
                 {
                     isExist = true;
                     fd.Count++;
-                    //OrderedMenus += fd.Name + " * " + fd.Count + Environment.NewLine;
                 }
             }
 
@@ -64,8 +65,6 @@ namespace ClassLibrary
             {
                 SeatFoodlst.Add(food);
                 food.Count++;
-                //OrderedMenus += food.Name + " * " + food.Count + Environment.NewLine;
-                Debug.WriteLine(OrderedMenus);
             }
 
             Set_MenuList();
@@ -73,6 +72,7 @@ namespace ClassLibrary
             return SeatFoodlst;
         }
 
+        // 메인 화면에서 주문한 (결제 X) 메뉴를 보여주는 함수
         public void Set_MenuList()
         {
             //모든 주문메뉴 -> string data로 변경

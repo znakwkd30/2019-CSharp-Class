@@ -58,7 +58,7 @@
             <RowDefinition Height="250"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <Button x:Name="OrderBtn" Click="OrderBtn_Click" Width="50" Height="50" 
+            <Button x:Name="OrderBtn" Click="Show_SeatCtrl" Width="50" Height="50" 
                 HorizontalAlignment="Right" VerticalAlignment="Top" Content="메인"></Button>
             <Image Source="Assets/bi.png" Stretch="None"/>
         </Grid>

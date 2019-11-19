@@ -132,8 +132,7 @@ namespace _2019CSharp
             var result = await request.ExecuteAsync();
 
             searchList.Items.Clear();
-
-            Debug.WriteLine("------");
+            
             foreach (var item in result.Items)
             {
                 if (item.Id.Kind == "youtube#video" || item.Id.Kind == "youtube#playlist")
@@ -162,9 +161,7 @@ namespace _2019CSharp
 
 
             var videoId = music.videoId;
-
-            Debug.WriteLine("-----");
-            Debug.WriteLine(videoId);
+            
             string youtubeUrl = "http://youtube.com/watch?v=" + videoId;
             web.Source = new Uri(youtubeUrl);
             // 디폴트 브라우져에서 실행

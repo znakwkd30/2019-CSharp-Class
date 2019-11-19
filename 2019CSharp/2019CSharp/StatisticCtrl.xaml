@@ -42,7 +42,7 @@
         </Grid>
         <Grid Grid.Column="2">
             <StackPanel>
-                <Button Click="Button_Click" Width="100" Height="100" VerticalAlignment="Top">메인</Button>
+                <Button Click="Show_SeatCtrl" Width="100" Height="100" VerticalAlignment="Top">메인</Button>
                 <TextBlock x:Name="salesPrice" Foreground="Black"></TextBlock>
             </StackPanel>
         </Grid>
