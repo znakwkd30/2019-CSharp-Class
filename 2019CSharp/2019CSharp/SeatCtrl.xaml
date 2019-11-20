@@ -121,12 +121,6 @@
                 </ListView>
             </Grid>
 
-            <!--<WrapPanel>
-                <TextBlock Foreground="Black" Text="{Binding Name}"></TextBlock>
-                <TextBlock Foreground="Black" Text=" * "></TextBlock>
-                <TextBlock Foreground="Black" Text="{Binding Count}"></TextBlock>
-            </WrapPanel>-->
-
             <Grid Grid.Row="1" Grid.Column="2">
                 <local:MusicControl x:Name="musicCtrl" Visibility="Visible"></local:MusicControl>
             </Grid>

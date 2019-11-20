@@ -27,6 +27,8 @@ namespace _2019CSharp
     {
         DispatcherTimer myTimer = new DispatcherTimer();
         string sendMessage;
+        string msg;
+        string connection;
 
         public SeatCtrl()
         {
@@ -41,14 +43,60 @@ namespace _2019CSharp
 
             orderCtrl.ShowSeatCtrl += OrderCtrl_ShowSeatCtrl;
             statisCtrl.ShowSeatCtrl += StatisticCtrl_ShowSeatCtrl;
+            
         }
 
+        //접속이 완료되었을 때 실행
+        private void Socket_OnConnect(object sender, EventArgs args)
+        {
+            msg = App.socket.OnConnectTime;
+
+            connection = App.socket.CheckConnect;
+
+            // UI 컨트롤 업데이트를 위한 디스패처 (UI 컨트롤은 일반적으로 다른 스레드에서 업데이트 불가)
+            Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+            {
+                Show_loginTime();
+            }));
+        }
+
+        //접속이 끊어졌을 때 실행
+        private void Socket_OffConnect(object sender, EventArgs args)
+        {
+            msg = App.socket.OffConnectTime;
+
+            connection = App.socket.CheckConnect;
+
+            // UI 컨트롤 업데이트를 위한 디스패처 (UI 컨트롤은 일반적으로 다른 스레드에서 업데이트 불가)
+            Dispatcher.Invoke(DispatcherPriority.Normal, new Action(delegate
+            {
+                Show_loginTime();
+            }));
+        }
+
+        public void Show_loginTime()
+        {
+            if (connection == "200")
+            {
+                serverConnection.Text = "서버 연결중...";
+                lastConnect.Text = "최근 로그인한 시간: " + msg;
+            }
+            else
+            {
+                serverConnection.Text = "서버 미연결...";
+                lastClose.Text = "최근 로그아웃한 시간: " + msg;
+            }
+        }
+        
         private void SeatCtrl_Loaded(object sender, RoutedEventArgs e)
         {
             InitBrowser();
             App.Load();
 
             lvSeat.ItemsSource = App.seatList;
+
+            App.socket.OnConnect += Socket_OnConnect;
+            App.socket.OffConnect += Socket_OffConnect;
         }
 
         private ChromiumWebBrowser browser;
@@ -124,28 +172,22 @@ namespace _2019CSharp
         // 서버와 연결하는 함수
         private void Connect_Socket(object sender, RoutedEventArgs e)
         {
-            string msg = App.socket.Connect_Server();
-
-            bool connection = App.socket.Return_Connection();
-
-            if (connection)
-            {
-                serverConnection.Text = "연결중...";
-                lastClose.Text = msg;
-            }
+            App.socket.Connect_Server();
         }
 
         // 서버와 연결을 끊는 함수
         private void Socket_Logout(object sender, RoutedEventArgs e)
         {
-            string msg = App.socket.Close_Socket();
-            
-            bool connection = App.socket.Return_Connection();
+            App.socket.Close_Socket();
 
-            if (!connection)
+            string msg = App.socket.OffConnectTime;
+
+            string connection = App.socket.CheckConnect;
+
+            if (connection == "0")
             {
-                lastConnect.Text = msg;
                 serverConnection.Text = "서버 미연결...";
+                lastClose.Text = "최근 로그아웃한 시간: " + msg;
             }
         }
     }
