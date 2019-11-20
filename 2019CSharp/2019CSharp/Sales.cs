@@ -57,7 +57,7 @@ namespace _2019CSharp
             {
                 for (int i = 0; i < App.FoodData.lstFood.Count; i++)
                 {
-                    _SalesFoodList.Add(NewFood(App.FoodData.lstFood[i]));
+                    _SalesFoodList.Add(App.NewFood(App.FoodData.lstFood[i]));
                 }
                 flag = false;
             }
@@ -79,22 +79,6 @@ namespace _2019CSharp
                 }
                 countFood++;
             }
-        }
-
-        // Food 데이터를 깊은 복사하는 함수
-        private Food NewFood(Food food)
-        {
-            Food item = new Food();
-
-            if (food == null)
-                return food;
-
-            item.Name = food.Name;
-            item.Price = food.Price;
-            item.Count = food.Count;
-            item.Category = food.Category;
-
-            return item;
         }
 
         // 카테고리 별 가격과 전체 가격을 저장하는 함수

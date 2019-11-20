@@ -31,7 +31,7 @@ namespace _2019CSharp
         string onConnectTime = string.Empty; // 로그인 시간 변수
         string offConnectTime = string.Empty; // 로그아웃 시간 변수
 
-        public byte[] recvBuf = new byte[1024]; // 서버에서 받은 데이터를 저장하는 변수ㅏ 
+        public byte[] recvBuf = new byte[1024]; // 서버에서 receive 받은 데이터를 저장하는 변수
 
         // 로그인 시간
         public string OnConnectTime
@@ -86,13 +86,10 @@ namespace _2019CSharp
             try
             {
                 sock.EndConnect(ar);
-
                 sock.BeginReceive(recvBuf, 0, recvBuf.Length, SocketFlags.None, ReceiveCallback, null);
 
                 CheckConnect = "200";
-
                 onConnectTime = string.Format("{0:D2}:{1:D2}:{2:D2}", DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
-
                 Send_Message("@2208");
                 
                 // OnConnect를 가진 곳이 있을 경우 실행
@@ -116,7 +113,7 @@ namespace _2019CSharp
             {
                 try
                 {
-                    int buffSize = sock.EndReceive(ar);
+                    int buffSize = sock.EndReceive(ar); // receive 받은 데이터의 길이
 
                     byte[] buff = new byte[buffSize];
                     Array.Copy(recvBuf, buff, buffSize);
@@ -181,6 +178,10 @@ namespace _2019CSharp
 
                 // OffConnect를 가진 곳이 있을 경우 실행
                 OffConnect?.Invoke(this, null);
+                //if (OffConnect != null)
+                //{
+                //    OffConnect(this, null) 이것과 같음
+                //}
             }
             else
             {

@@ -170,13 +170,13 @@ namespace _2019CSharp
         }
 
         // 서버와 연결하는 함수
-        private void Connect_Socket(object sender, RoutedEventArgs e)
+        private void UICtrl_Connect_Server(object sender, RoutedEventArgs e)
         {
             App.socket.Connect_Server();
         }
 
         // 서버와 연결을 끊는 함수
-        private void Socket_Logout(object sender, RoutedEventArgs e)
+        private void UICtrl_UnConnect_Server(object sender, RoutedEventArgs e)
         {
             App.socket.Close_Socket();
 

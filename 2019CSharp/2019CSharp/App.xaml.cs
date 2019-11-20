@@ -48,6 +48,22 @@ namespace _2019CSharp
             action();
         }
 
+        // Food 데이터를 깊은 복사하는 함수
+        public static Food NewFood(Food food)
+        {
+            Food item = new Food();
+
+            if (food == null)
+                return food;
+
+            item.Name = food.Name;
+            item.Price = food.Price;
+            item.Count = food.Count;
+            item.Category = food.Category;
+
+            return item;
+        }
+
         public static SeatCtrl seatCtrl = new SeatCtrl();
         public static Sales sales = new Sales();
         public static ServerClient socket = new ServerClient();

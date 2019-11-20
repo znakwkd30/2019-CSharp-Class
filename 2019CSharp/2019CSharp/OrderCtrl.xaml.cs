@@ -131,24 +131,6 @@ namespace _2019CSharp
             lvFood.Items.Refresh();
         }
 
-        // Food 데이터를 깊은 복사하는 함수
-        private Food NewFood(Food food)
-        {
-            Food item = new Food();
-
-            if (food == null)
-                return food;
-            
-            Debug.Write(food);
-
-            item.Name = food.Name;
-            item.Price = food.Price;
-            item.Count = food.Count;
-            item.Category = food.Category;
-
-            return item;
-        }
-
         // 주문한 음식 및 가격을 Refresh하는 함수
         public void Refresh_List()
         {
@@ -165,7 +147,7 @@ namespace _2019CSharp
         // 음식을 선택했을 때 주문 내역 리스트에 음식 저장
         private void LvFood_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            selectedFood = NewFood(lvFood.SelectedItem as Food);
+            selectedFood = App.NewFood(lvFood.SelectedItem as Food);
 
             if (selectedFood == null) return;
 

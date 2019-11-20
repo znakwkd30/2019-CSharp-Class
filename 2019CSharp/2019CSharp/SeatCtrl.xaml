@@ -78,13 +78,13 @@
                         FontSize="22" FontWeight="Bold" 
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top" 
-                        Click="Connect_Socket"
+                        Click="UICtrl_Connect_Server"
                        Margin="20, 30"></Button>
                 <Button Width="100" Height="100" Content="로그아웃" 
                         FontSize="22" FontWeight="Bold" 
                         HorizontalAlignment="Right"
                         VerticalAlignment="Top" 
-                        Click="Socket_Logout"
+                        Click="UICtrl_UnConnect_Server"
                         Margin="20, 30"></Button>
                 <Button Width="100" Height="100" Content="매출 전송" 
                         FontSize="22" FontWeight="Bold" 
