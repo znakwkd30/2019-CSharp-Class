@@ -184,7 +184,7 @@ namespace _2019CSharp
 
             string connection = App.socket.CheckConnect;
 
-            if (connection == "0")
+            if (connection == "200")
             {
                 serverConnection.Text = "서버 미연결...";
                 lastClose.Text = "최근 로그아웃한 시간: " + msg;

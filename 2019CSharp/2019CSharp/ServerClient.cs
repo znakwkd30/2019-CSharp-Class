@@ -72,7 +72,7 @@ namespace _2019CSharp
                     // 서버에 연결
                     sock.BeginConnect(ep, ConnectCallback, null);
                 }
-                catch (Exception err)
+                catch (SocketException err)
                 {
                     errorMessage = string.Format("[SYSTEM] : 연결 실패.\n{0}", err.Message);
                     MessageBox.Show(errorMessage);
@@ -99,7 +99,7 @@ namespace _2019CSharp
                 //    OnConnect(this, null) 이것과 같음
                 //}
             }
-            catch (Exception ex)
+            catch (SocketException ex)
             {
                 errorMessage = string.Format("[SYSTEM] : connect 실패.\n{0}", ex.Message);
                 MessageBox.Show(errorMessage);
@@ -125,7 +125,7 @@ namespace _2019CSharp
                         Console.WriteLine(CheckConnect);
                     }
                 }
-                catch(Exception ex)
+                catch(SocketException ex)
                 {
                     errorMessage = string.Format("[SYSTEM] : 서버 연결 해제.\n{0}", ex.Message);
                     MessageBox.Show(errorMessage);
@@ -159,7 +159,7 @@ namespace _2019CSharp
             {
                 sock.EndSend(ar);
             }
-            catch(Exception ex)
+            catch(SocketException ex)
             {
                 errorMessage = string.Format("[SYSTEM] : send 실패.\n{0}", ex.Message);
                 MessageBox.Show(errorMessage);

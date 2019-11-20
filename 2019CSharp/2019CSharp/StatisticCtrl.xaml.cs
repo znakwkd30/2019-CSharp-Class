@@ -52,6 +52,7 @@ namespace _2019CSharp
             {
                 payFood.ItemsSource = App.sales.SalesFoodList;
                 payFood.Items.Refresh();
+                Set_Price(category);
                 return;
             }
 
